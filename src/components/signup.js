@@ -13,6 +13,10 @@ export const Signup = ({
 }) => {
   return (
     <div>
+      <div id="signupBackgroundDiv">
+        <img src="JobHack-Frontend/src/components/signupImg/signupJobHack.png" alt="JobHack" />
+
+      </div>
       <div id="divSignup">
         <form id="formSignup" onSubmit={submitHandler}>
           {!loginToggle && (
@@ -21,11 +25,11 @@ export const Signup = ({
               onChange={(e) => setUsername(e.target.value)}
             />
           )}
-          <input
+          <input className="inputSignup"
             placeholder="email"
             onChange={(e) => setEmail(e.target.value)}
           />
-          <input
+          <input className="inputSignup"
             placeholder="password"
             onChange={(e) => setPass(e.target.value)}
           />
@@ -43,7 +47,7 @@ export const Signup = ({
       {/* <h3>Read Users</h3>
       <button onClick={listUserHandler}> List users (check console) </button> */}
       <div>
-        <form onSubmit={updateEmailHandler}>
+        {/* <form onSubmit={updateEmailHandler}>
           <h3>
             Update: Enter your username & the email that you want to change to{" "}
           </h3>
@@ -56,7 +60,7 @@ export const Signup = ({
             onChange={(e) => setEmail(e.target.value)}
           />
           <button type="submit"> Update email </button>
-        </form>
+        </form> */}
         {/* <form onSubmit={deleteUserHandler}>
           <h3> Delete User </h3>
           <input
@@ -66,6 +70,7 @@ export const Signup = ({
           <button type="submit"> Delete user </button>
         </form> */}
       </div>
+      
     </div>
   );
 };
