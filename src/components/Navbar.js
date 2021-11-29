@@ -37,7 +37,9 @@ export const Navbar = () => {
           <Link to="/manage">Manage</Link>
         </li>
         <li>
-          <Link to="/logout">Log out</Link>
+          <Link to="/logout">
+            <button>Log out </button>
+          </Link>
         </li>
       </ul>
     </nav>
