@@ -11,6 +11,7 @@ import {
   Login,
   fetchRequestListMovies,
 } from "./utils";
+import { Navbar } from "./components/Navbar/Navbar";
 
 function App() {
   //USER states
@@ -67,6 +68,7 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar user={user} />
       {user ? (
         <div>
           <h1>Welcome {user.username}</h1>
