@@ -1,4 +1,4 @@
-import "./signup.css"
+import "./signup.css";
 
 export const Signup = ({
   setUsername,
@@ -14,22 +14,27 @@ export const Signup = ({
   return (
     <div>
       <div id="signupBackgroundDiv">
-        <img src="JobHack-Frontend/src/components/signupImg/signupJobHack.png" alt="JobHack" />
-
+        <img
+          src="JobHack-Frontend/src/components/signupImg/signupJobHack.png"
+          alt="JobHack"
+        />
       </div>
       <div id="divSignup">
         <form id="formSignup" onSubmit={submitHandler}>
           {!loginToggle && (
-            <input className="inputSignup"
+            <input
+              className="inputSignup"
               placeholder="username"
               onChange={(e) => setUsername(e.target.value)}
             />
           )}
-          <input className="inputSignup"
+          <input
+            className="inputSignup"
             placeholder="email"
             onChange={(e) => setEmail(e.target.value)}
           />
-          <input className="inputSignup"
+          <input
+            className="inputSignup"
             placeholder="password"
             onChange={(e) => setPass(e.target.value)}
           />
@@ -70,7 +75,6 @@ export const Signup = ({
           <button type="submit"> Delete user </button>
         </form> */}
       </div>
-      
     </div>
   );
 };
