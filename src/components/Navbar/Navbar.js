@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import JHNavBarImg from "../../../public/JHNavBar.svg";
+import JHNavBarImg from "./JHNavBar.svg";
 
 //if state = logged out
-
-export const Navbar = ({ user }) => {
+export const Navbar = ({ user, logOutHandler }) => {
   return { user } ? (
-    <nav>
+    <nav className="container">
       <ul>
         <li>
           <Link to="/">
@@ -20,8 +19,8 @@ export const Navbar = ({ user }) => {
           <Link to="/manage">Manage</Link>
         </li>
         <li>
-          <Link to="/logout">
-            <button>Log out </button>
+          <Link to="/">
+            <button onClick={logOutHandler}>Log out</button>
           </Link>
         </li>
       </ul>
