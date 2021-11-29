@@ -1,3 +1,5 @@
+import "./signup.css"
+
 export const Signup = ({
   setUsername,
   setEmail,
@@ -11,10 +13,10 @@ export const Signup = ({
 }) => {
   return (
     <div>
-      <div>
-        <form onSubmit={submitHandler}>
+      <div id="divSignup">
+        <form id="formSignup" onSubmit={submitHandler}>
           {!loginToggle && (
-            <input
+            <input className="inputSignup"
               placeholder="username"
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -38,8 +40,8 @@ export const Signup = ({
           {!loginToggle ? "Already have an account?" : "Need to register?"}
         </button>
       </div>
-      <h3>Read Users</h3>
-      <button onClick={listUserHandler}> List users (check console) </button>
+      {/* <h3>Read Users</h3>
+      <button onClick={listUserHandler}> List users (check console) </button> */}
       <div>
         <form onSubmit={updateEmailHandler}>
           <h3>
@@ -55,14 +57,14 @@ export const Signup = ({
           />
           <button type="submit"> Update email </button>
         </form>
-        <form onSubmit={deleteUserHandler}>
+        {/* <form onSubmit={deleteUserHandler}>
           <h3> Delete User </h3>
           <input
             placeholder="username"
             onChange={(e) => setUsername(e.target.value)}
           />
           <button type="submit"> Delete user </button>
-        </form>
+        </form> */}
       </div>
     </div>
   );
