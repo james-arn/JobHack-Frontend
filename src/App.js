@@ -11,7 +11,9 @@ import {
   Login,
   fetchRequestListMovies,
 } from "./utils";
-import {Find} from "./components/Find/Find"
+import { Navbar } from "./components/Navbar/Navbar";
+
+import { Find } from "./components/Find/Find";
 function App() {
   //USER states
   const [user, setUser] = useState();
@@ -67,6 +69,7 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar user={user} />
       {user ? (
         <div>
           <h1>Welcome {user.username}</h1>
