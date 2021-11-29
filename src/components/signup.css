@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+}
+
+body {
+  display: flex;
+  align-items: flex-start;
+  width: 50%;
+}
+
+button {
+  border: none;
+  padding: 5px;
+  background: #ff914d;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+}
+
+.inputSignup {
+  background: rgba(196, 196, 196, 0.36);
+  border-radius: 10px;
+}
