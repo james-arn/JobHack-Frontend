@@ -11,7 +11,7 @@ import { Manage } from "./components/Manage/Manage";
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
+      <Route exact path="/" element={<App />} />
       <Route path="/find" element={<Find />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/manage" element={<Manage />} />
