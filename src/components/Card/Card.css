@@ -1,0 +1,51 @@
+.card-container {
+    width: 25%;
+    min-width: 300px;
+    padding: 10px;
+    border: 2px solid #eee;
+    text-align: left;
+    margin: 10px;
+    border-radius: 10px;
+    
+}
+
+.card-job-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.card-company {
+    text-align: right;
+    margin-bottom: 10px;
+    
+}
+
+.card-description {
+    font-weight: lighter;
+}
+
+a {
+    display: block;
+    color:cornflowerblue;
+    text-decoration: underline;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+button {
+    margin-bottom: 20px;
+    color: white;
+    background-color: #FF914D;
+    border: none;
+    padding: 0.5em;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.card-subrow {
+    display: flex;
+    justify-content: space-between;
+}

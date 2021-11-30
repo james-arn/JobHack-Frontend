@@ -1,7 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import { Signup } from "./components/signup";
-import ListMovies from "./components/movies";
+import { Signup } from "./components/signup/signup";
 import {
   fetchRequestAddUser,
   getUser,
@@ -9,9 +8,10 @@ import {
   fetchRequestUpdateEmail,
   fetchRequestDeleteUser,
   Login,
-  fetchRequestListMovies,
 } from "./utils";
-
+import { Navbar } from "./components/Navbar/Navbar";
+import { Find } from "./components/Find/Find";
+import { Home } from "./components/Home/home";
 function App() {
   //USER states
   const [user, setUser] = useState();
@@ -19,8 +19,6 @@ function App() {
   const [email, setEmail] = useState();
   const [pass, setPass] = useState();
   const [loginToggle, setLoginToggle] = useState(false);
-  //MOVIE states
-  const [movieArr, setMovieArr] = useState([]); //map is an array method - needs to map through array. cannot be empty on load.
 
   useEffect(() => {
     getUser(setUser); // on load this renders while getUser does thing.
@@ -60,23 +58,10 @@ function App() {
     localStorage.removeItem("MyToken");
   };
 
-  //MOVIE HANDLERS
-  const getMoviesHandler = () => {
-    fetchRequestListMovies(setMovieArr);
-  };
-
   return (
     <div className="App">
-      {user ? (
-        <div>
-          <h1>Welcome {user.username}</h1>
-          <button onClick={logOutHandler}>Log out</button>
-          <button onClick={getMoviesHandler}> Get Movies </button>
-          <ListMovies movieArr={movieArr} />
-        </div>
-      ) : (
-        <h1>Please log in</h1>
-      )}
+      <Navbar user={user} logOutHandler={logOutHandler} />
+      {user ? <Find /> : <Home user={user} />}
       {!user && (
         <Signup
           setUsername={setUsername}
