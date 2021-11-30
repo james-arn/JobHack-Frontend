@@ -3,8 +3,7 @@ import { initialData } from "../../initialData";
 import { Navbar } from "../Navbar/Navbar";
 import "./Manage.css";
 import { DragDropContext } from "react-beautiful-dnd";
-import { Column } from "../Column/Column"
-
+import { Column } from "../Column/Column";
 
 export const Manage = () => {
   const [board, setBoard] = useState(initialData);
@@ -13,13 +12,15 @@ export const Manage = () => {
     const { destination, source, draggableId } = result;
     // Cancelled drop
     if (!destination) {
+      console.log("no drop destination");
       return;
     }
     // Drop card in the same place?
     if (
-      destination.draggableId === source.draggableId &&
+      destination.droppableId === source.droppableId &&
       destination.index === source.index
     ) {
+      console.log("Card dropped in the same place");
       return;
     }
 
@@ -45,26 +46,26 @@ export const Manage = () => {
           [newColumn.id]: newColumn,
         },
       };
-
+      console.log("dragend");
       setBoard(newState);
       return;
     }
 
     // Moving from one column to another.
-    const startJobIds = Array.from(start.jobIds);
-    startJobIds.splice(source.index, 1);
+    const startJobids = Array.from(start.jobIds);
+    startJobids.splice(source.index, 1);
 
     const newStart = {
       ...start,
-      jobIds: startJobIds,
+      jobIds: startJobids,
     };
 
-    const finishJobIds = Array.from(finish.jobIds);
-    finishJobIds.splice(destination.index, 0, draggableId);
+    const finishedJobIds = Array.from(finish.jobIds);
+    finishedJobIds.splice(destination.index, 0, draggableId);
 
     const newFinish = {
       ...finish,
-      jobIds: finishJobIds,
+      jobIds: finishedJobIds,
     };
 
     const newState = {
@@ -75,9 +76,7 @@ export const Manage = () => {
         [newFinish.id]: newFinish,
       },
     };
-
-    console.log(newState)
-
+    console.log("dragend");
     setBoard(newState);
   };
 
