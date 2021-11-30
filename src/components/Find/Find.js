@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { jobModel } from "../../jobModel";
 import { JobsComponent } from "../JobsComponent/JobsComponent";
+import { Navbar } from "../Navbar/Navbar";
 import "./Find.css";
 
 export const Find = () => {
@@ -35,23 +36,32 @@ export const Find = () => {
   };
 
   return (
-    <div>
+    <div className="find-container">
+      <Navbar />
+      <div className="find-title-container">
+          <h2 className="find-title">Use our handy tool to search for developer jobs here..</h2>
+          <p className="find-desc">
+            Adding items to your list will create a card on the canban board on the manage page so that you can track your progress!
+          </p>
+      </div>
       <div className="search-criteria">
         <div className="find-col-1">
-          <label className="job-name-label label">Job Name</label>
           <input
-            classname="input"
+            className="input"
             onChange={(e) => setJobName(e.target.value)}
+            type="text"
+            placeholder="Job name"
           ></input>
         </div>
         <div className="find-col-2">
-          <label className="job-location-label label">Location</label>
           <input
-            classname="find-input"
+            className="input"
             onChange={(e) => setLocation(e.target.value)}
+            type="text"
+            placeholder="Location"
           ></input>
         </div>
-        <button className="job-search-button" onClick={fetchURL}>
+        <button className="job-search-button button" onClick={fetchURL}>
           Search
         </button>
       </div>
@@ -60,7 +70,7 @@ export const Find = () => {
           <JobsComponent fetchedJobs={fetchedJobs} />
         </div>
       ) : (
-        <div>Please search for jobs here..</div>
+        <div className="find-search-text">Jobs suited for your search will appear here...</div>
       )}
     </div>
   );
