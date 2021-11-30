@@ -1,0 +1,17 @@
+.manage-container {
+    height: 100vh;
+}
+
+.manage-title {
+    padding-top: 100px;
+    text-align: center;
+}
+
+.canban-board { 
+    display: flex;
+    justify-content: center;
+}
+
+.canban-container {
+    display: flex;
+}
