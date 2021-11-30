@@ -1,45 +1,47 @@
 import { Link } from "react-router-dom";
-import "./Navbar.css";
+import Nav, { Logo, Hamburger, Menu, MenuLink } from "./NavBar.styled";
 import JHNavBarImg from "./JHNavBar.svg";
 
 //if state = logged out
 export const Navbar = ({ user, logOutHandler }) => {
-  return { user } ? (
-    <nav className="container">
-      <ul>
-        <li>
-          <Link to="/">
-            <img src={JHNavBarImg} alt="logo" />
-          </Link>
-        </li>
-        <li>
+  return user ? (
+    <Nav>
+      <Logo>
+        <Link to="/">
+          <img src={JHNavBarImg} alt="logo" />
+        </Link>
+      </Logo>
+      <Hamburger>
+        <span></span>
+        <span></span>
+        <span></span>
+      </Hamburger>
+      <Menu>
+        <MenuLink>
           <Link to="/find">Find</Link>
-        </li>
-        <li>
+        </MenuLink>
+        <MenuLink>
           <Link to="/manage">Manage</Link>
-        </li>
-        <li>
+        </MenuLink>
+        <MenuLink>
           <Link to="/">
             <button onClick={logOutHandler}>Log out</button>
           </Link>
-        </li>
-      </ul>
-    </nav>
+        </MenuLink>
+      </Menu>
+    </Nav>
   ) : (
-    //if state = logged in
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">
-            <img src={JHNavBarImg} alt="logo" />
-          </Link>
-        </li>
-        <li>
-          <Link to="/signup">
-            <button> Sign up </button>
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    <Nav>
+      <Logo>
+        <Link to="/">
+          <img src={JHNavBarImg} alt="logo" />
+        </Link>
+      </Logo>
+      <MenuLink>
+        <Link to="/signup">
+          <button> Sign up </button>
+        </Link>
+      </MenuLink>
+    </Nav>
   );
 };
