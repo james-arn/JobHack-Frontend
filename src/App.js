@@ -62,7 +62,6 @@ function App() {
     <div className="App">
       <Navbar user={user} logOutHandler={logOutHandler} />
       {user ? <Find /> : <Home user={user} />}
-      //BELOW NEEDS CHANGING SO IT'S NOT ON HOME PAGE, BUT SIGN UP/LOG IN PAGE.
       {!user && (
         <Signup
           setUsername={setUsername}
