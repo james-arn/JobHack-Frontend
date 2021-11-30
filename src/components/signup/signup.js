@@ -1,4 +1,5 @@
-import "./signup.css";
+import { Container, Left, Right, StyledInput, StyledButton } from "../styles/container.styled";
+import logo from "./jobhack-img.svg";
 
 export const Signup = ({
   setUsername,
@@ -13,45 +14,44 @@ export const Signup = ({
 }) => {
   return (
     <div>
-      <div id="signupBackgroundDiv">
-        <img
-          src="JobHack-Frontend/src/components/signupImg/signupJobHack.png"
-          alt="JobHack"
-        />
-      </div>
-      <div id="divSignup">
+      <Container>
+      <Left>
         <form id="formSignup" onSubmit={submitHandler}>
           {!loginToggle && (
-            <input
+            <StyledInput
               className="inputSignup"
               placeholder="username"
               onChange={(e) => setUsername(e.target.value)}
             />
           )}
-          <input
+          <StyledInput
             className="inputSignup"
             placeholder="email"
             onChange={(e) => setEmail(e.target.value)}
           />
-          <input
+          <StyledInput
             className="inputSignup"
             placeholder="password"
             onChange={(e) => setPass(e.target.value)}
           />
-          <button type="submit"> {!loginToggle ? "Sign up" : "Log in"} </button>
+          <StyledButton type="submit"> {!loginToggle ? "Sign up" : "Log in"} </StyledButton>
         </form>
-        <button
+        <StyledButton
           onClick={(e) => {
             setLoginToggle(!loginToggle);
             setUsername();
           }}
         >
           {!loginToggle ? "Already have an account?" : "Need to register?"}
-        </button>
-      </div>
+        </StyledButton>
+      </Left>
+      <Right>
+        <img src={logo} alt="logo" />
+      </Right>
+      </Container>
       {/* <h3>Read Users</h3>
       <button onClick={listUserHandler}> List users (check console) </button> */}
-      <div>
+      
         {/* <form onSubmit={updateEmailHandler}>
           <h3>
             Update: Enter your username & the email that you want to change to{" "}
@@ -74,7 +74,7 @@ export const Signup = ({
           />
           <button type="submit"> Delete user </button>
         </form> */}
-      </div>
+      
     </div>
   );
 };
