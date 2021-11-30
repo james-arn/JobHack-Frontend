@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 
 * {
   margin: 0;
@@ -24,7 +24,7 @@ body {
   width: 100%;
 } */
 
-button {
+/* button {
   margin: 5px;
   border: none;
   padding: 10px;
@@ -48,4 +48,9 @@ button {
 
 img {
   margin-left: 70%;
+} */
+
+body {
+  background-color: orange red;
+  flex-direction: column;
 }
