@@ -1,4 +1,4 @@
-import { Container, Left, Right, StyledInput, StyledButton } from "../styles/container.styled";
+import { Container, Left, Right, StyledInput, StyledButton, StyledLabel } from "../styles/container.styled";
 import logo from "./jobhack-img.svg";
 
 export const Signup = ({
@@ -18,20 +18,25 @@ export const Signup = ({
       <Left>
         <form id="formSignup" onSubmit={submitHandler}>
           {!loginToggle && (
+            <>
+            <StyledLabel for="username">Username</StyledLabel>
             <StyledInput
               className="inputSignup"
-              placeholder="username"
+              name="username"
               onChange={(e) => setUsername(e.target.value)}
             />
+          </>
           )}
+          <StyledLabel for="email">Email</StyledLabel>
           <StyledInput
             className="inputSignup"
-            placeholder="email"
+            name="email"
             onChange={(e) => setEmail(e.target.value)}
           />
+          <StyledLabel for="password">Password</StyledLabel>
           <StyledInput
             className="inputSignup"
-            placeholder="password"
+            name="password"
             onChange={(e) => setPass(e.target.value)}
           />
           <StyledButton type="submit"> {!loginToggle ? "Sign up" : "Log in"} </StyledButton>
