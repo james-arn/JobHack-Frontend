@@ -1,12 +1,8 @@
-import { useState } from "react";
-import { initialData } from "../../initialData";
-import { Navbar } from "../Navbar/Navbar";
 import "./Manage.css";
 import { DragDropContext } from "react-beautiful-dnd";
 import { Column } from "../Column/Column";
 
-export const Manage = () => {
-  const [board,setBoard] = useState(initialData)
+export const Manage = ({board,setBoard}) => {
   const onDragEndHandler = (result) => {
     const { destination, source, draggableId } = result;
     // Cancelled drop
