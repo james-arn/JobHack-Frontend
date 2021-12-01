@@ -7,14 +7,6 @@ export const Card = ({ title, company, description, salary, board, setBoard }) =
   const addToListHandler = () => {
     
     const newJobId = _.uniqueId("job_")
-
-    let job1 = {
-      id:'job1',
-      title,
-      company,
-      description,
-      salary,
-    };
     
     let newState = {
       ...board,
@@ -34,6 +26,8 @@ export const Card = ({ title, company, description, salary, board, setBoard }) =
         }
       }
     }
+
+    console.log(newState)
     setBoard(newState)
   };
 
