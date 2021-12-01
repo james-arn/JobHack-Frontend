@@ -1,21 +1,15 @@
 import "./Card.css";
 
-export const Card = ({
-  title,
-  company,
-  description,
-  salary,
-}) => {
+export const Card = ({ title, company, description, salary }) => {
   const shortenedDesc = description.substring(0, 100).concat("...");
-  const roundedSalary = Math.round(salary)  
+  const roundedSalary = Math.round(salary);
   const addToListHandler = () => {
     let job = {
       title,
       company,
       description,
-      salary
+      salary,
     };
-    console.log(job)
   };
 
   return (
@@ -27,7 +21,9 @@ export const Card = ({
       </div>
       <p className="card-description">{shortenedDesc}</p>
       <a href="www.google.com">See more...</a>
-      <button className="button"onClick={addToListHandler}>Add to List</button>
+      <button className="button" onClick={addToListHandler}>
+        Add to List
+      </button>
     </div>
   );
 };

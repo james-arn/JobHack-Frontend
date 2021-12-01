@@ -45,22 +45,18 @@ export const Find = () => {
           </p>
       </div>
       <div className="search-criteria">
-        <div className="find-col-1">
           <input
-            className="input"
+            className="left-input input"
             onChange={(e) => setJobName(e.target.value)}
             type="text"
             placeholder="Job name"
           ></input>
-        </div>
-        <div className="find-col-2">
           <input
-            className="input"
+            className="right-input input"
             onChange={(e) => setLocation(e.target.value)}
             type="text"
             placeholder="Location"
           ></input>
-        </div>
         <button className="job-search-button button" onClick={fetchURL}>
           Search
         </button>
