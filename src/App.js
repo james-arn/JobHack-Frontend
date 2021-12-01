@@ -7,7 +7,7 @@ import {
   fetchRequestListUsers,
   fetchRequestUpdateEmail,
   fetchRequestDeleteUser,
-  Login,
+  login,
 } from "./utils";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Find } from "./components/Find/Find";
@@ -23,6 +23,8 @@ function App() {
   const [email, setEmail] = useState();
   const [pass, setPass] = useState();
   const [loginToggle, setLoginToggle] = useState(false);
+  const [auth, setAuth] = useState();
+
   // Board State
   const [board, setBoard] = useState(initialData);
   useEffect(() => {
@@ -31,17 +33,12 @@ function App() {
 
   //USER HANDLERS
   const submitHandler = (e) => {
-    e.preventDefault(); //stops entire page rerendering when clicked.
-    // const userObj = { user: user, email: email, password: pass };
-    // setUser(userObj); //entire user stored in state.
+    e.preventDefault();
     if (username) {
       fetchRequestAddUser(username, email, pass, setUser);
     } else {
-      Login(email, pass, setUser);
+      login(email, pass, setUser, setAuth);
     }
-    //// FOR LOCAL STORAGE:
-    // const jsonObj = JSON.stringify(userObj);
-    // localStorage.setItem("user", jsonObj);
   };
 
   const listUserHandler = () => {
@@ -66,19 +63,6 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar user={user} logOutHandler={logOutHandler} />
-      {/* {!user && (
-        <Signup
-          setUsername={setUsername}
-          setEmail={setEmail}
-          setPass={setPass}
-          submitHandler={submitHandler}
-          listUserHandler={listUserHandler}
-          updateEmailHandler={updateEmailHandler}
-          deleteUserHandler={deleteUserHandler}
-          loginToggle={loginToggle}
-          setLoginToggle={setLoginToggle}
-        />
-      )} */}
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route
@@ -89,8 +73,11 @@ function App() {
           path="/signup"
           element={
             <Signup
+              username={username}
               setUsername={setUsername}
+              email={email}
               setEmail={setEmail}
+              pass={pass}
               setPass={setPass}
               submitHandler={submitHandler}
               listUserHandler={listUserHandler}
@@ -98,6 +85,7 @@ function App() {
               deleteUserHandler={deleteUserHandler}
               loginToggle={loginToggle}
               setLoginToggle={setLoginToggle}
+              auth={auth}
             />
           }
         />
