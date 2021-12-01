@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Nav, { Logo, Hamburger, Menu, MenuLink } from "./NavBar.styled";
 import JHNavBarImg from "./JHNavBar.svg";
 
 //if state = logged out
 export const Navbar = ({ user, logOutHandler }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return user ? (
     <Nav>
       <Logo>
@@ -11,12 +14,12 @@ export const Navbar = ({ user, logOutHandler }) => {
           <img src={JHNavBarImg} alt="logo" />
         </Link>
       </Logo>
-      <Hamburger>
-        <span></span>
-        <span></span>
-        <span></span>
+      <Hamburger onClick={() => setIsOpen(!isOpen)}>
+        <span />
+        <span />
+        <span />
       </Hamburger>
-      <Menu>
+      <Menu isOpen={isOpen}>
         <MenuLink to="/find">Find</MenuLink>
         <MenuLink to="/manage">Manage</MenuLink>
         <Link to="/">
