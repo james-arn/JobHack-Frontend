@@ -12,6 +12,10 @@ import {
 import { Navbar } from "./components/Navbar/Navbar";
 import { Find } from "./components/Find/Find";
 import Home from "./components/Home/home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Manage } from "./components/Manage/Manage";
+import { initialData } from "./initialData";
+
 function App() {
   //USER states
   const [user, setUser] = useState();
@@ -19,7 +23,8 @@ function App() {
   const [email, setEmail] = useState();
   const [pass, setPass] = useState();
   const [loginToggle, setLoginToggle] = useState(false);
-
+  // Board State
+  const [board,setBoard] = useState(initialData)
   useEffect(() => {
     getUser(setUser); // on load this renders while getUser does thing.
   }, []);
@@ -59,7 +64,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <BrowserRouter>
       <Navbar user={user} logOutHandler={logOutHandler} />
       {user ? <Find /> : <Home user={user} />}
       {!user && (
@@ -75,7 +80,14 @@ function App() {
           setLoginToggle={setLoginToggle}
         />
       )}
-    </div>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/find" element={<Find board={board} setBoard={setBoard} />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/manage" element={<Manage board={board} setBoard={setBoard} />} />
+        <Route path="*" element={<p>Not found.</p>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

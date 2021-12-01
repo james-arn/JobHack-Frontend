@@ -4,18 +4,19 @@ import { JobsComponent } from "../JobsComponent/JobsComponent";
 import { Navbar } from "../Navbar/Navbar";
 import "./Find.css";
 
-export const Find = () => {
+export const Find = ({board, setBoard}) => {
   const [jobName, setJobName] = useState("");
   const [location, setLocation] = useState("");
   const [fetchedJobs, setFetchedJobs] = useState([]);
 
   const fetchURL = async () => {
+    setFetchedJobs([])
     const data = await fetch(
       `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=14758e80&app_key=b7bdf1e68baa9af01ec4a64dbfe8d2b3&where=${location}&what=${jobName}`
     );
     const response = await data.json();
     let fetchedJobsArray = [];
-
+      console.log(response)
     for (let i = 0; i < response.results.length; i++) {
       const companyName = response.results[i].company.display_name;
       const jobTitle = response.results[i].title;
@@ -28,16 +29,18 @@ export const Find = () => {
         description,
         salary
       );
+
       fetchedJobsArray.push(fetchedJob);
     }
+    console.log(fetchedJobsArray)
     setFetchedJobs(fetchedJobsArray);
     setJobName("");
     setLocation("");
+    
   };
 
   return (
     <div className="find-container">
-      <Navbar />
       <div className="find-title-container">
           <h2 className="find-title">Use our handy tool to search for developer jobs here..</h2>
           <p className="find-desc">
@@ -63,7 +66,7 @@ export const Find = () => {
       </div>
       {fetchedJobs.length > 1 ? (
         <div style={{ display: "block" }}>
-          <JobsComponent fetchedJobs={fetchedJobs} />
+          <JobsComponent fetchedJobs={fetchedJobs} board={board} setBoard={setBoard}/>
         </div>
       ) : (
         <div className="find-search-text">Jobs suited for your search will appear here...</div>

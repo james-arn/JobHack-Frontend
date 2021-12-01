@@ -2,20 +2,38 @@ import "./Card.css";
 import { useState } from "react";
 import { Modal } from "../Modal/Modal";
 
-export const Card = ({ title, company, description, salary }) => {
-  // const [modalIsOpen, setModalIsOpen] = useState(false);
-  //   const openModal = () => {
-  //       setModalIsOpen(true);
-  //     };
+export const Card = ({ title, company, description, salary, board, setBoard }) => {
+
   const shortenedDesc = description.substring(0, 100).concat("...");
   const roundedSalary = Math.round(salary);
   const addToListHandler = () => {
-    let job = {
+    let job1 = {
+      id:'job1',
       title,
       company,
       description,
       salary,
     };
+    
+    let newState = {
+      ...board,
+    };
+    
+    newState = { 
+      ...newState,
+      jobs: {
+        ...newState.jobs, job1 
+      },
+      columns: {
+        ...newState.columns,
+        'column-1': {
+          ...newState.columns["column-1"],
+          jobIds: [...newState.columns['column-1'].jobIds, job1.id]
+        }
+      }
+    }
+
+    console.log(newState)
   };
 
   return (
