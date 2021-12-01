@@ -5,8 +5,8 @@ import "./Manage.css";
 import { DragDropContext } from "react-beautiful-dnd";
 import { Column } from "../Column/Column";
 
-export const Manage = ({board,setBoard}) => {
-
+export const Manage = () => {
+  const [board,setBoard] = useState(initialData)
   const onDragEndHandler = (result) => {
     const { destination, source, draggableId } = result;
     // Cancelled drop

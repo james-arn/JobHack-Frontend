@@ -10,12 +10,13 @@ export const Find = () => {
   const [fetchedJobs, setFetchedJobs] = useState([]);
 
   const fetchURL = async () => {
+    setFetchedJobs([])
     const data = await fetch(
       `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=14758e80&app_key=b7bdf1e68baa9af01ec4a64dbfe8d2b3&where=${location}&what=${jobName}`
     );
     const response = await data.json();
     let fetchedJobsArray = [];
-
+      console.log(response)
     for (let i = 0; i < response.results.length; i++) {
       const companyName = response.results[i].company.display_name;
       const jobTitle = response.results[i].title;
@@ -28,16 +29,18 @@ export const Find = () => {
         description,
         salary
       );
+
       fetchedJobsArray.push(fetchedJob);
     }
+    console.log(fetchedJobsArray)
     setFetchedJobs(fetchedJobsArray);
     setJobName("");
     setLocation("");
+    
   };
 
   return (
     <div className="find-container">
-      <Navbar />
       <div className="find-title-container">
           <h2 className="find-title">Use our handy tool to search for developer jobs here..</h2>
           <p className="find-desc">
