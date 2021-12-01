@@ -1,21 +1,21 @@
 import "./Card.css";
+import { useState } from "react";
+import { Modal } from "../Modal/Modal";
 
-export const Card = ({
-  title,
-  company,
-  description,
-  salary,
-}) => {
+export const Card = ({ title, company, description, salary }) => {
+  // const [modalIsOpen, setModalIsOpen] = useState(false);
+  //   const openModal = () => {
+  //       setModalIsOpen(true);
+  //     };
   const shortenedDesc = description.substring(0, 100).concat("...");
-  const roundedSalary = Math.round(salary)  
+  const roundedSalary = Math.round(salary);
   const addToListHandler = () => {
     let job = {
       title,
       company,
       description,
-      salary
+      salary,
     };
-    console.log(job)
   };
 
   return (
@@ -26,8 +26,13 @@ export const Card = ({
         <p className="card-company">{company}</p>
       </div>
       <p className="card-description">{shortenedDesc}</p>
-      <a href="www.google.com">See more...</a>
-      <button className="button"onClick={addToListHandler}>Add to List</button>
+      {/* <button onClick={openModal}> */}
+      {/* See more...
+      </button> */}
+      {/* <Modal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} /> */}
+      <button className="button" onClick={addToListHandler}>
+        Add to List
+      </button>
     </div>
   );
 };

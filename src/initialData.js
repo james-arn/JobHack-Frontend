@@ -9,7 +9,7 @@ export const initialData = {
         'column-1': {
             id: 'column-1',
             title: 'My List',
-            jobIds: ['job-2' ]
+            jobIds: ['job-2','job-1']
         },
         'column-2': {
             id: 'column-2',
