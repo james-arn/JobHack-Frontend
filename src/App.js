@@ -24,7 +24,7 @@ function App() {
   const [pass, setPass] = useState();
   const [loginToggle, setLoginToggle] = useState(false);
   // Board State
-  const [board,setBoard] = useState(initialData)
+  const [board, setBoard] = useState(initialData);
   useEffect(() => {
     getUser(setUser); // on load this renders while getUser does thing.
   }, []);
@@ -66,8 +66,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar user={user} logOutHandler={logOutHandler} />
-      {user ? <Find /> : <Home user={user} />}
-      {!user && (
+      {/* {!user && (
         <Signup
           setUsername={setUsername}
           setEmail={setEmail}
@@ -79,12 +78,33 @@ function App() {
           loginToggle={loginToggle}
           setLoginToggle={setLoginToggle}
         />
-      )}
+      )} */}
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/find" element={<Find board={board} setBoard={setBoard} />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/manage" element={<Manage board={board} setBoard={setBoard} />} />
+        <Route
+          path="/find"
+          element={<Find board={board} setBoard={setBoard} />}
+        />
+        <Route
+          path="/signup"
+          element={
+            <Signup
+              setUsername={setUsername}
+              setEmail={setEmail}
+              setPass={setPass}
+              submitHandler={submitHandler}
+              listUserHandler={listUserHandler}
+              updateEmailHandler={updateEmailHandler}
+              deleteUserHandler={deleteUserHandler}
+              loginToggle={loginToggle}
+              setLoginToggle={setLoginToggle}
+            />
+          }
+        />
+        <Route
+          path="/manage"
+          element={<Manage board={board} setBoard={setBoard} />}
+        />
         <Route path="*" element={<p>Not found.</p>} />
       </Routes>
     </BrowserRouter>

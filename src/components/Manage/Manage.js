@@ -81,7 +81,6 @@ export const Manage = () => {
 
   return (
     <div className="manage-container">
-      <Navbar />
       <h2 className="manage-title">
         Use our Canban Board to keep track of your tasks in the Application
         Process
