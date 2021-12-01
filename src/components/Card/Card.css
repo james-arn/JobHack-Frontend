@@ -32,7 +32,7 @@ a {
     cursor: pointer;
 }
 
-button {
+.button {
     margin-bottom: 20px;
     color: white;
     background-color: #FF914D;
