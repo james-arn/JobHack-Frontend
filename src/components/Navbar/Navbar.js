@@ -17,21 +17,11 @@ export const Navbar = ({ user, logOutHandler }) => {
         <span></span>
       </Hamburger>
       <Menu>
-        <MenuLink>
-          <Link to="/find" activeClassName="current">
-            Find
-          </Link>
-        </MenuLink>
-        <MenuLink>
-          <Link to="/manage" activeClassName="current">
-            Manage
-          </Link>
-        </MenuLink>
-        <MenuLink>
-          <Link to="/">
-            <button onClick={logOutHandler}>Log out</button>
-          </Link>
-        </MenuLink>
+        <MenuLink to="/find">Find</MenuLink>
+        <MenuLink to="/manage">Manage</MenuLink>
+        <Link to="/">
+          <button onClick={logOutHandler}>Log out</button>
+        </Link>
       </Menu>
     </Nav>
   ) : (
@@ -41,11 +31,9 @@ export const Navbar = ({ user, logOutHandler }) => {
           <img src={JHNavBarImg} alt="logo" />
         </Link>
       </Logo>
-      <MenuLink>
-        <Link to="/signup">
-          <button> Sign up </button>
-        </Link>
-      </MenuLink>
+      <Link to="/signup">
+        <button> Sign up </button>
+      </Link>
     </Nav>
   );
 };
