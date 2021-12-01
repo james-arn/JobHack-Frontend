@@ -1,7 +1,3 @@
-// below is request obj we would send to rest api. exactly the same as thunderlient.
-//this is the bridge between react app and back end rest api.
-
-//USERS
 //stay logged in on page load useeffect
 export const getUser = async (setUser) => {
   try {
@@ -22,7 +18,7 @@ export const getUser = async (setUser) => {
 };
 
 //new log in from login button
-export const Login = async (email, pass, setUser) => {
+export const login = async (email, pass, setUser, setAuth) => {
   try {
     const response = await fetch(`${process.env.REACT_APP_REST_API}login`, {
       method: "POST",
@@ -32,8 +28,13 @@ export const Login = async (email, pass, setUser) => {
         pass: pass,
       }),
     });
+    if (response.status === 401) {
+      setAuth(false);
+      console.log("auth set to false");
+    }
     const data = await response.json();
     setUser(data.user);
+    setAuth(true);
     localStorage.setItem("MyToken", data.token);
   } catch (error) {
     console.log(error);
