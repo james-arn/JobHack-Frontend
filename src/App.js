@@ -11,7 +11,7 @@ import {
 } from "./utils";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Find } from "./components/Find/Find";
-import { Home } from "./components/Home/home";
+import Home from "./components/Home/home";
 function App() {
   //USER states
   const [user, setUser] = useState();

@@ -25,8 +25,13 @@ export const Menu = styled.div`
 `;
 
 export const MenuLink = styled.ul`
+  display: flex;
+  a {
+    text-decoration: none;
+  }
+  li {
+  }
   padding: 1rem 2rem;
-  text-decoration: none;
   cursor: pointer;
   text-align: center;
   position: relative;
@@ -34,6 +39,11 @@ export const MenuLink = styled.ul`
   font-size: 0.9rem;
   &:hover {
     color: red;
+  }
+  .current {
+    .li {
+      border-bottom: 2px solid black;
+    }
   }
 `;
 

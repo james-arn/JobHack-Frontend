@@ -18,10 +18,14 @@ export const Navbar = ({ user, logOutHandler }) => {
       </Hamburger>
       <Menu>
         <MenuLink>
-          <Link to="/find">Find</Link>
+          <Link to="/find" activeClassName="current">
+            Find
+          </Link>
         </MenuLink>
         <MenuLink>
-          <Link to="/manage">Manage</Link>
+          <Link to="/manage" activeClassName="current">
+            Manage
+          </Link>
         </MenuLink>
         <MenuLink>
           <Link to="/">
