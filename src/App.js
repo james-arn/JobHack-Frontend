@@ -12,6 +12,8 @@ import {
 import { Navbar } from "./components/Navbar/Navbar";
 import { Find } from "./components/Find/Find";
 import Home from "./components/Home/home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Manage } from "./components/Manage/Manage";
 function App() {
   //USER states
   const [user, setUser] = useState();
@@ -59,7 +61,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <BrowserRouter>
       <Navbar user={user} logOutHandler={logOutHandler} />
       {user ? <Find /> : <Home user={user} />}
       {!user && (
@@ -75,7 +77,14 @@ function App() {
           setLoginToggle={setLoginToggle}
         />
       )}
-    </div>
+      <Routes>
+        {/* <Route exact path="/" element={<Home />} /> */}
+        <Route path="/find" element={<Find />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/manage" element={<Manage />} />
+        <Route path="*" element={<p>Not found.</p>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
