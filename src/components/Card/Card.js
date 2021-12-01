@@ -1,15 +1,36 @@
 import "./Card.css";
 
-export const Card = ({ title, company, description, salary }) => {
+export const Card = ({ title, company, description, salary, board, setBoard }) => {
   const shortenedDesc = description.substring(0, 100).concat("...");
   const roundedSalary = Math.round(salary);
   const addToListHandler = () => {
-    let job = {
+    let job1 = {
+      id:'job1',
       title,
       company,
       description,
       salary,
     };
+    
+    let newState = {
+      ...board,
+    };
+    
+    newState = { 
+      ...newState,
+      jobs: {
+        ...newState.jobs, job1 
+      },
+      columns: {
+        ...newState.columns,
+        'column-1': {
+          ...newState.columns["column-1"],
+          jobIds: [...newState.columns['column-1'].jobIds, job1.id]
+        }
+      }
+    }
+
+    console.log(newState)
   };
 
   return (

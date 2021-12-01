@@ -4,7 +4,7 @@ import { JobsComponent } from "../JobsComponent/JobsComponent";
 import { Navbar } from "../Navbar/Navbar";
 import "./Find.css";
 
-export const Find = () => {
+export const Find = ({board, setBoard}) => {
   const [jobName, setJobName] = useState("");
   const [location, setLocation] = useState("");
   const [fetchedJobs, setFetchedJobs] = useState([]);
@@ -66,7 +66,7 @@ export const Find = () => {
       </div>
       {fetchedJobs.length > 1 ? (
         <div style={{ display: "block" }}>
-          <JobsComponent fetchedJobs={fetchedJobs} />
+          <JobsComponent fetchedJobs={fetchedJobs} board={board} setBoard={setBoard}/>
         </div>
       ) : (
         <div className="find-search-text">Jobs suited for your search will appear here...</div>

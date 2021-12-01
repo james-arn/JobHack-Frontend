@@ -1,7 +1,7 @@
 import { Card } from "../Card/Card";
 import "./JobComponent.css"
 
-export const JobsComponent = ({ fetchedJobs }) => (
+export const JobsComponent = ({ fetchedJobs, board, setBoard }) => (
   <div className="jobs-component">
     {fetchedJobs.map((el, index) => (
       <Card
@@ -12,6 +12,8 @@ export const JobsComponent = ({ fetchedJobs }) => (
         description={el.description}
         salary={el.salary}
         fetchedJobs={fetchedJobs}
+        board={board}
+        setBoard={setBoard}
       />
     ))}
   </div>
