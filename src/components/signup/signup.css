@@ -53,4 +53,5 @@ img {
 body {
   background-color: orange red;
   flex-direction: column;
+  text-align: center;
 }
