@@ -28,7 +28,7 @@ function App() {
     setUser();
     localStorage.removeItem("MyToken");
   };
-  
+
   return (
     <BrowserRouter>
       <Routes>
@@ -63,7 +63,6 @@ function App() {
               auth={auth}
               setAuth={setAuth}
               setUser={setUser}
-              submitHandler={submitHandler}
             />
           }
         />
