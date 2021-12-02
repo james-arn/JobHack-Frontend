@@ -18,7 +18,14 @@ export const getUser = async (setUser) => {
 };
 
 //new log in from login button
-export const login = async (email, pass, setUser, setAuth) => {
+export const login = async (
+  email,
+  pass,
+  setUser,
+  setAuth,
+  navigateToFind,
+  auth
+) => {
   try {
     const response = await fetch(`${process.env.REACT_APP_REST_API}login`, {
       method: "POST",
@@ -31,10 +38,12 @@ export const login = async (email, pass, setUser, setAuth) => {
     if (response.status === 401) {
       setAuth(false);
       console.log("auth set to false");
+      return;
     }
     const data = await response.json();
     setUser(data.user);
     setAuth(true);
+    navigateToFind(auth);
     localStorage.setItem("MyToken", data.token);
   } catch (error) {
     console.log(error);
@@ -46,7 +55,8 @@ export const fetchRequestAddUser = async (
   username,
   email,
   password,
-  setUser
+  setUser,
+  setAuth
 ) => {
   try {
     const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {
@@ -63,9 +73,11 @@ export const fetchRequestAddUser = async (
     const data = await response.json();
     console.log(data);
     setUser(data.user); //saves data to user
+    setAuth(true);
     localStorage.setItem("MyToken", data.token);
   } catch (error) {
     console.log(error);
+    setAuth(false);
   }
 };
 

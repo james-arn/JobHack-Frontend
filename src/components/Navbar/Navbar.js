@@ -4,8 +4,13 @@ import Nav, { Logo, Hamburger, Menu, MenuLink } from "./NavBar.styled";
 import JHNavBarImg from "./JHNavBar.svg";
 import "./Navbar.css"
 //if state = logged out
-export const Navbar = ({ user, logOutHandler }) => {
+export const Navbar = ({ user, setUser }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const logOutHandler = () => {
+    setUser();
+    localStorage.removeItem("MyToken");
+  };
 
   return user ? (
     <Nav>

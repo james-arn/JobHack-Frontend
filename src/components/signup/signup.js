@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import {
   Container,
   Left,
@@ -8,24 +9,50 @@ import {
   StyledLabel,
 } from "../styles/container.styled";
 import logo from "./jobhack-img.svg";
-import { login } from "../../utils";
+import { login, fetchRequestAddUser } from "../../utils";
 export const Signup = ({
+  username,
   setUsername,
+  email,
   setEmail,
+  pass,
   setPass,
-  submitHandler,
   loginToggle,
   setLoginToggle,
   auth,
+  setAuth,
+  setUser,
 }) => {
-  // const checkLogIn = () => {
-  //   login;
-  // };
+  //REACT ROUTER STATE
+  let navigate = useNavigate();
+  useEffect(() => {
+    setAuth(); // on load this renders while getUser does thing.
+  }, []);
+
+  //HANDLERS
+
+  const navigateToFind = (auth) => {
+    if (auth === true) {
+      navigate("/find");
+    } else {
+      alert("please re-enter log in");
+    }
+  };
+
+  const SubmitHandler = (e) => {
+    e.preventDefault();
+    if (username) {
+      fetchRequestAddUser(username, email, pass, setUser);
+    } else {
+      login(email, pass, setUser, setAuth, navigateToFind);
+    }
+  };
 
   return (
     <div>
       <Container>
         <Left>
+
           <h1 className='login-title'>Welcome Back to <span className='login-span'>JobHack</span></h1>
           <form id="formSignup" onSubmit={submitHandler}>
             {!loginToggle && (
@@ -55,17 +82,10 @@ export const Signup = ({
                 *Incorrect login details. Please re-enter.
               </p>
             )}
-            {auth === true ? (
-              <Link to="/find">
-                <StyledButton className="form-button"type="submit">
-                  {!loginToggle ? "Sign up" : "Log in"}{" "}
-                </StyledButton>
-              </Link>
-            ) : (
-              <StyledButton className="form-button"type="submit">
-                {!loginToggle ? "Sign up" : "Log in"}{" "}
-              </StyledButton>
-            )}
+
+            <StyledButton type="submit">
+              {!loginToggle ? "Sign up" : "Log in"}{" "}
+            </StyledButton>
           </form>
           <StyledButton
           className="link-item"
