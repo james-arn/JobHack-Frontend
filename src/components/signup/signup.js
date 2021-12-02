@@ -8,7 +8,7 @@ import {
   StyledButton,
   StyledLabel,
 } from "../styles/container.styled";
-import logo from "./jobhack-img.svg";
+import logo from "./JobHack.svg";
 import { login, fetchRequestAddUser } from "../../utils";
 export const Signup = ({
   username,
@@ -89,7 +89,7 @@ export const Signup = ({
             </StyledButton>
           </form>
           <button
-          className="link-item"
+            className="link-item"
             onClick={(e) => {
               setLoginToggle(!loginToggle);
               setUsername();

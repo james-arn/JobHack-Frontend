@@ -73,11 +73,11 @@ export const fetchRequestAddUser = async (
     const data = await response.json();
     console.log(data);
     setUser(data.user); //saves data to user
-    setAuth(true);
+    // setAuth(true);
     localStorage.setItem("MyToken", data.token);
   } catch (error) {
     console.log(error);
-    setAuth(false);
+    // setAuth(false);
   }
 };
 
