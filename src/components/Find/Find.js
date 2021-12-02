@@ -4,7 +4,7 @@ import { JobsComponent } from "../JobsComponent/JobsComponent";
 import { Navbar } from "../Navbar/Navbar";
 import "./Find.css";
 
-export const Find = ({ board, setBoard }) => {
+export const Find = ({ board, setBoard, user, logOutHandler }) => {
   const [jobName, setJobName] = useState("");
   const [location, setLocation] = useState("");
   const [fetchedJobs, setFetchedJobs] = useState([]);
@@ -40,6 +40,7 @@ export const Find = ({ board, setBoard }) => {
 
   return (
     <div className="find-container">
+      <Navbar user={user} logOutHandler={logOutHandler} />
       <div className="find-title-container">
         <h2 className="find-title">
           Use our handy tool to search for developer jobs here..
