@@ -1,9 +1,18 @@
 import "./Card.css";
 import _ from "lodash"
+import { useState } from "react";
+import { Modal1 } from "../Modal/Modal.js"
+
+
+
 
 export const Card = ({ title, company, description, salary, board, setBoard }) => {
   const shortenedDesc = description.substring(0, 100).concat("...");
   const roundedSalary = Math.round(salary);
+  const [modalIsOpen, setModalIsOpen] = useState(false); 
+const openModal = () => {
+    setModalIsOpen(true);
+  };
   const addToListHandler = () => {
     
     const newJobId = _.uniqueId("job_")
@@ -38,7 +47,10 @@ export const Card = ({ title, company, description, salary, board, setBoard }) =
         <p className="card-company">{company}</p>
       </div>
       <p className="card-description">{shortenedDesc}</p>
-      <a href="www.google.com">See more...</a>
+      <button onClick={openModal}>
+      <p> See more...</p>
+      </button>
+      {modalIsOpen && <Modal1 modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />}
       <button className="button" onClick={addToListHandler}>
         Add to List
       </button>
