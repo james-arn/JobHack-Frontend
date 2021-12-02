@@ -88,15 +88,15 @@ export const Signup = ({
               {!loginToggle ? "Sign up" : "Log in"}{" "}
             </StyledButton>
           </form>
-          <StyledButton
-            className="link-item"
+          <button
+          className="link-item"
             onClick={(e) => {
               setLoginToggle(!loginToggle);
               setUsername();
             }}
           >
             {!loginToggle ? "Already have an account?" : "Need to register?"}
-          </StyledButton>
+          </button>
         </Left>
         <Right>
           <img src={logo} alt="logo" />
