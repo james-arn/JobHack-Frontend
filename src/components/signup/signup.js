@@ -52,8 +52,9 @@ export const Signup = ({
     <div>
       <Container>
         <Left>
-
-          <h1 className='login-title'>Welcome Back to <span className='login-span'>JobHack</span></h1>
+          <h1 className="login-title">
+            Welcome Back to <span className="login-span">JobHack</span>
+          </h1>
           <form id="formSignup" onSubmit={submitHandler}>
             {!loginToggle && (
               <>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Nav, { Logo, Hamburger, Menu, MenuLink } from "./NavBar.styled";
 import JHNavBarImg from "./JHNavBar.svg";
-import "./Navbar.css"
+import "./Navbar.css";
 //if state = logged out
 export const Navbar = ({ user, setUser, logOutHandler }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +23,9 @@ export const Navbar = ({ user, setUser, logOutHandler }) => {
         <MenuLink to="/find">Find</MenuLink>
         <MenuLink to="/manage">Manage</MenuLink>
         <Link to="/">
-          <button className="nav-button" onClick={logOutHandler}>Log out</button>
+          <button className="nav-button" onClick={logOutHandler}>
+            Log out
+          </button>
         </Link>
       </Menu>
     </Nav>

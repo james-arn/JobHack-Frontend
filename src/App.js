@@ -28,18 +28,25 @@ function App() {
     setUser();
     localStorage.removeItem("MyToken");
   };
-
-  const submitHandler = () => { 
-
-  }
-
+  
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Home user={user} logOutHandler={logOutHandler}/>} />
+        <Route
+          exact
+          path="/"
+          element={<Home user={user} logOutHandler={logOutHandler} />}
+        />
         <Route
           path="/find"
-          element={<Find board={board} setBoard={setBoard} user={user} logOutHandler={logOutHandler}/>}
+          element={
+            <Find
+              board={board}
+              setBoard={setBoard}
+              user={user}
+              logOutHandler={logOutHandler}
+            />
+          }
         />
         <Route
           path="/signup"
@@ -62,7 +69,14 @@ function App() {
         />
         <Route
           path="/manage"
-          element={<Manage board={board} setBoard={setBoard} user={user} logOutHandler={logOutHandler}/>}
+          element={
+            <Manage
+              board={board}
+              setBoard={setBoard}
+              user={user}
+              logOutHandler={logOutHandler}
+            />
+          }
         />
         <Route path="*" element={<p>Not found.</p>} />
       </Routes>
