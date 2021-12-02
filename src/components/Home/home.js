@@ -83,6 +83,16 @@ const LeftSide = styled.div`
   height:50vh;
   margin-top: 20vh;
   margin-left: 100px;
+  @media only screen and (max-width: 1000px) {
+        width: 100%;
+        height: auto;
+        h1 {
+            font-size: 5rem;
+        }
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+    }
 `;
 
 const LeftSideTop = styled.div`
@@ -103,6 +113,12 @@ width: 100%;
     margin: 0 0 50px 0;
     padding: 0;
     font-weight:bold;
+  }
+  @media only screen and (max-width: 1000px) {
+    width: 100%;
+    display: flex;
+        flex-flow: column;
+        justify-content: center;
   }
 `;
 
@@ -133,6 +149,10 @@ const LeftSideButtons = styled.div`
     border-radius: 10px;
     font-weight: bold;
   }
+  @media only screen and (max-width: 1000px) {
+        width: 100vw;
+        height: auto;
+    }
 `;
 
 const LeftSideBottom = styled.div`
@@ -168,6 +188,11 @@ const LeftSideBottom = styled.div`
     font-weight: bold;
     border-radius: 5px;
   }
+  @media only screen and (max-width: 1000px) {
+        height: auto;
+        width: 100%;
+        margin-top: 50px;
+    }
 `;
 
 const RightSide = styled.div`
@@ -182,6 +207,9 @@ const RightSide = styled.div`
     height: auto;
     object-fit: contain;
   }
+  @media only screen and (max-width: 1000px) {
+        display: none;
+    }
 `;
 
 export default Home;
