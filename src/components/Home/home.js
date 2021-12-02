@@ -3,10 +3,13 @@ import styled from "styled-components";
 import homeright from "./homeright.svg";
 import { Link } from "react-router-dom";
 import "./home.css"
+import { Navbar } from "../Navbar/Navbar";
 
-const Home = () => {
+const Home = ({user, logOutHandler}) => {
   return (
     <HomePage>
+      <Navbar user={user} logOutHandler={logOutHandler} />
+      <div className="hero">
       <LeftSide>
         <LeftSideTop>
           <h1>Get Hired.</h1>
@@ -54,6 +57,7 @@ const Home = () => {
       <RightSide>
         <img src={homeright} alt=""></img>
       </RightSide>
+      </div>
     </HomePage>
   );
 };
@@ -64,7 +68,10 @@ const HomePage = styled.div`
   margin: 0 auto;
   max-width: 1500px;
   padding: 0;
-  display: flex;
+
+  .hero {
+    display:flex;
+  }
 `;
 
 const LeftSide = styled.div`
