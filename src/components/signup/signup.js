@@ -39,7 +39,7 @@ export const Signup = ({
     }
   };
 
-  const SubmitHandler = (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
     if (username) {
       fetchRequestAddUser(username, email, pass, setUser);
@@ -52,8 +52,9 @@ export const Signup = ({
     <div>
       <Container>
         <Left>
-
-          <h1 className='login-title'>Welcome Back to <span className='login-span'>JobHack</span></h1>
+          <h1 className="login-title">
+            Welcome Back to <span className="login-span">JobHack</span>
+          </h1>
           <form id="formSignup" onSubmit={submitHandler}>
             {!loginToggle && (
               <>
@@ -88,7 +89,7 @@ export const Signup = ({
             </StyledButton>
           </form>
           <StyledButton
-          className="link-item"
+            className="link-item"
             onClick={(e) => {
               setLoginToggle(!loginToggle);
               setUsername();
