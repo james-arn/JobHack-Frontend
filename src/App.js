@@ -24,6 +24,15 @@ function App() {
     getUser(setUser); // on load this renders while getUser does thing.
   }, []);
 
+  const logOutHandler = () => {
+    setUser();
+    localStorage.removeItem("MyToken");
+  };
+
+  const submitHandler = () => { 
+
+  }
+
   return (
     <BrowserRouter>
       <Routes>
@@ -47,6 +56,7 @@ function App() {
               auth={auth}
               setAuth={setAuth}
               setUser={setUser}
+              submitHandler={submitHandler}
             />
           }
         />

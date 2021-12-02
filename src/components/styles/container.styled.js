@@ -28,8 +28,10 @@ export const Left = styled.div`
     background: none;
     border: none;
     color: #ff914d;
-    font-weight: bold;
     cursor: pointer;
+    font-size: 1rem;
+    color: black;
+    margin-top:10px;
   }
 
   .login-title {
@@ -66,6 +68,15 @@ export const StyledButton = styled.button`
   background: #ff914d;
   border-radius: 5px;
   display: block;
+  height: 40px;
+  width: 80%;
+  color:white;
+  border: none;
+  margin: 10px auto;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0;
+  cursor:pointer;
 `;
 
 export const StyledLabel = styled.label`
