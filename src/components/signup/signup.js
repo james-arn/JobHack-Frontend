@@ -39,7 +39,7 @@ export const Signup = ({
     }
   };
 
-  const SubmitHandler = (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
     if (username) {
       fetchRequestAddUser(username, email, pass, setUser);
@@ -87,7 +87,7 @@ export const Signup = ({
               {!loginToggle ? "Sign up" : "Log in"}{" "}
             </StyledButton>
           </form>
-          <StyledButton
+          <button
           className="link-item"
             onClick={(e) => {
               setLoginToggle(!loginToggle);
@@ -95,7 +95,7 @@ export const Signup = ({
             }}
           >
             {!loginToggle ? "Already have an account?" : "Need to register?"}
-          </StyledButton>
+          </button>
         </Left>
         <Right>
           <img src={logo} alt="logo" />
