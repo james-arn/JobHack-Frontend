@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import homeright from "./homeright.svg";
 import { Link } from "react-router-dom";
+import "./home.css"
 
 const Home = () => {
   return (
@@ -9,7 +10,7 @@ const Home = () => {
       <LeftSide>
         <LeftSideTop>
           <h1>Get Hired.</h1>
-          <p>Hack into your first Junior Developer Job</p>
+          <p>Hack into your first Junior Developer Job.</p>
         </LeftSideTop>
         <LeftSideButtons>
           <Link to="/signup">
@@ -20,7 +21,7 @@ const Home = () => {
           </Link>
         </LeftSideButtons>
         <LeftSideBottom>
-          <ol>
+          {/* <ol>
             <li>
               <span className="listnum1">1</span>Sign Up or log in
             </li>
@@ -32,7 +33,22 @@ const Home = () => {
               <span className="listnum">3</span>Keep track & manage your
               applications
             </li>
-          </ol>
+          </ol> */}
+
+          <div className="bullet-point">
+            <div className="listnum">1</div>
+            <h4 className="bullet-text">Sign Up Or Log In</h4>
+          </div>
+          <div className="bullet-point">
+            <div className="listnum">2</div>
+            <h4 className="bullet-text">Find Junior Developer jobs all
+              in one place</h4>
+          </div>
+          <div className="bullet-point">
+            <div className="listnum"><p style={{textAlign:"center"}}>3</p></div>
+            <h4 className="bullet-text">Keep track & manage your
+              applications</h4>
+          </div>
         </LeftSideBottom>
       </LeftSide>
       <RightSide>
@@ -44,120 +60,106 @@ const Home = () => {
 
 const HomePage = styled.div`
   /* background: grey; */
-  height: 92.5vh;
-  margin: 0;
+  height: 100%;
+  margin: 0 auto;
+  max-width: 1500px;
   padding: 0;
   display: flex;
 `;
 
 const LeftSide = styled.div`
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
+  width:50vw;
+  height:50vh;
+  margin-top: 20vh;
+  margin-left: 100px;
 `;
 
 const LeftSideTop = styled.div`
-  width: 45vw;
-  height: 35vh;
-  /* background: yellow; */
+width: 100%;
   h1 {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    color: orange;
-    font-size: 6rem;
-    text-align: center;
-    margin-bottom: 0;
-    text-shadow: 2px 2px #ff0000;
+    font-family: Roboto, sans-serif;
+    color: #FF914D;
+    font-size: 9em;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    font-weight:bold;
   }
   p {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    text-align: center;
-    font-size: 1.8rem;
-    margin-top: 0;
-    margin-bottom: 100px;
+    font-family: Roboto, sans-serif;
+    text-align: left;
+    font-size: 1.6rem;
+    margin: 0 0 50px 0;
+    padding: 0;
+    font-weight:bold;
   }
 `;
 
 const LeftSideButtons = styled.div`
-  height: 15vh;
-  width: 45vw;
   display: flex;
-  justify-content: space-around;
+  width:100%;
+  margin: 0 0 50px 0;
+
   .btn1 {
-    background: orange;
+    background: #FF914D;
     color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 10px;
-    border-color: transparent;
-    text-transform: capitalize;
-    font-size: 1rem;
     cursor: pointer;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    height: 50px;
-    width: 150px;
-    font-size: 2rem;
+    padding:1em 2.5em;
+    font-size:1.4rem;
+    margin: 0;
+    border:none;
+    border-radius: 10px;
+    font-weight: bold;
   }
   .btn2 {
     background: white;
-    color: orange;
-    padding: 0.25rem 0.75rem;
-    border-radius: 10px;
-    border-color: transparent;
-    text-transform: capitalize;
-    font-size: 1rem;
+    color: #FF914D;
     cursor: pointer;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    height: 50px;
-    width: 150px;
-    font-size: 2rem;
     border: 1px solid orange;
+    padding: 1em 2.5em;
+    font-size:1.4rem;
+    margin: 0 0 0 1em;
+    border-radius: 10px;
+    font-weight: bold;
   }
 `;
 
 const LeftSideBottom = styled.div`
-  width: 45vw;
-  height: 42.5vh;
   display: flex;
-  justify-content: center;
+  flex-direction:column;
+  width:100%;
+
   ol {
     list-style-type: none;
   }
-  li {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    font-weight: 300;
-    font-size: 1.5rem;
-    margin-bottom: 35px;
-    line-height: 2rem;
+  .bullet-point {
+    display: flex;
+    align-items: center;
   }
+  .bullet-text {
+    align-items:center;
+    font-size:1.5em;
+    font-weight: lighter;
+    font-style: italic;
+  }
+
   .listnum {
-    margin-right: 40px;
-    background: orange;
+    display:flex;
+    justify-content: center;
+    background: #FF914D;
     color: white;
-    padding: 10px 15px;
-    border-radius: 10px;
-    border-color: transparent;
-    text-transform: capitalize;
-    font-size: 1rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    font-size: 2rem;
-  }
-  .listnum1 {
-    margin-right: 40px;
-    background: orange;
-    color: white;
-    padding: 10px 17.5px;
-    border-radius: 10px;
-    border-color: transparent;
-    text-transform: capitalize;
-    font-size: 1rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    font-size: 2rem;
+    width:50px;
+    height:50px;
+    align-items:center;
+    text-align: center;
+    font-size: 3em;
+    margin-right: 20px;
+    font-weight: bold;
+    border-radius: 5px;
   }
 `;
 
@@ -165,12 +167,11 @@ const RightSide = styled.div`
   width: 55vw;
   height: 92.5vh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  flex-wrap: wrap;
-  /* background: green; */
+  flex-wrap: wrap; 
   img {
-    max-width: 70%;
+    max-width: 90%;
     height: auto;
     object-fit: contain;
   }

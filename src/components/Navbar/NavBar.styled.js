@@ -7,7 +7,8 @@ const Nav = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background: whitesmoke;
+  max-width: 1500px;
+  margin: 0 auto;
 `;
 
 export const Hamburger = styled.div`
