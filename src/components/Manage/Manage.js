@@ -1,8 +1,9 @@
 import "./Manage.css";
 import { DragDropContext } from "react-beautiful-dnd";
 import { Column } from "../Column/Column";
+import { Navbar } from "../Navbar/Navbar";
 
-export const Manage = ({board,setBoard}) => {
+export const Manage = ({board,setBoard, user, logOutHandler}) => {
   const onDragEndHandler = (result) => {
     const { destination, source, draggableId } = result;
     // Cancelled drop
@@ -77,6 +78,7 @@ export const Manage = ({board,setBoard}) => {
 
   return (
     <div className="manage-container">
+      <Navbar user={user} logOutHandler={logOutHandler} />
       <h2 className="manage-title">
         Use our Canban Board to keep track of your tasks in the Application
         Process

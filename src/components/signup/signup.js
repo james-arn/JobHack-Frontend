@@ -52,7 +52,9 @@ export const Signup = ({
     <div>
       <Container>
         <Left>
-          <form id="formSignup" onSubmit={SubmitHandler}>
+
+          <h1 className='login-title'>Welcome Back to <span className='login-span'>JobHack</span></h1>
+          <form id="formSignup" onSubmit={submitHandler}>
             {!loginToggle && (
               <>
                 <StyledLabel for="username">Username</StyledLabel>
@@ -80,11 +82,13 @@ export const Signup = ({
                 *Incorrect login details. Please re-enter.
               </p>
             )}
+
             <StyledButton type="submit">
               {!loginToggle ? "Sign up" : "Log in"}{" "}
             </StyledButton>
           </form>
           <StyledButton
+          className="link-item"
             onClick={(e) => {
               setLoginToggle(!loginToggle);
               setUsername();

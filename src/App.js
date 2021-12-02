@@ -26,12 +26,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar user={user} setUser={setUser} />
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<Home user={user} logOutHandler={logOutHandler}/>} />
         <Route
           path="/find"
-          element={<Find board={board} setBoard={setBoard} />}
+          element={<Find board={board} setBoard={setBoard} user={user} logOutHandler={logOutHandler}/>}
         />
         <Route
           path="/signup"
@@ -53,7 +52,7 @@ function App() {
         />
         <Route
           path="/manage"
-          element={<Manage board={board} setBoard={setBoard} />}
+          element={<Manage board={board} setBoard={setBoard} user={user} logOutHandler={logOutHandler}/>}
         />
         <Route path="*" element={<p>Not found.</p>} />
       </Routes>
