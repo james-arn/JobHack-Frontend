@@ -27,7 +27,6 @@ export const Card = ({ title, company, description, salary, board, setBoard }) =
       }
     }
 
-    console.log(newState)
     setBoard(newState)
   };
 
