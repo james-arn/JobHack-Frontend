@@ -10,9 +10,12 @@ export const Find = ({ board, setBoard, user, logOutHandler }) => {
   const [fetchedJobs, setFetchedJobs] = useState([]);
 
   const fetchURL = async () => {
+    if (jobName === "" || Location === "") {
+      alert("Please enter your search criteria.")
+    }
     setFetchedJobs([]);
     const data = await fetch(
-      `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=14758e80&app_key=b7bdf1e68baa9af01ec4a64dbfe8d2b3&where=${location}&what=${jobName}`
+      `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=14758e80&app_key=b7bdf1e68baa9af01ec4a64dbfe8d2b3&where=${location}&what=${jobName}&results_per_page=18`
     );
     const response = await data.json();
     let fetchedJobsArray = [];
@@ -34,8 +37,6 @@ export const Find = ({ board, setBoard, user, logOutHandler }) => {
     }
     console.log(fetchedJobsArray);
     setFetchedJobs(fetchedJobsArray);
-    setJobName("");
-    setLocation("");
   };
 
   return (

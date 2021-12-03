@@ -47,6 +47,22 @@
 }
 
 .find-desc {
-  margin-bottom: 50px;
-  font-weight: lighter;
+    margin-bottom: 50px;
+    font-weight: lighter;
 }
+
+@media only screen and (max-width: 600px) {
+
+    .find-title-container {
+        padding: 0 2em;
+    }
+    .search-criteria {
+        display: block;
+    }
+
+    .button {
+        width: 100%;
+        margin: auto;
+    }
+}
+

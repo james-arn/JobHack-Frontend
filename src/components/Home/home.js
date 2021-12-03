@@ -84,14 +84,15 @@ const LeftSide = styled.div`
   margin-top: 20vh;
   margin-left: 100px;
   @media only screen and (max-width: 1000px) {
-        width: 100%;
-        height: auto;
+        
+    margin:20vh 0;
+    margin-left:30px;
+        
         h1 {
-            font-size: 5rem;
+          font-size:6rem;
         }
-        display: flex;
-        flex-flow: column;
-        justify-content: center;
+
+
     }
 `;
 
@@ -117,8 +118,8 @@ width: 100%;
   @media only screen and (max-width: 1000px) {
     width: 100%;
     display: flex;
-        flex-flow: column;
-        justify-content: center;
+    flex-flow: column;
+    justify-content: center;
   }
 `;
 
@@ -134,9 +135,14 @@ const LeftSideButtons = styled.div`
     padding:1em 2.5em;
     font-size:1.4rem;
     margin: 0;
-    border:none;
+    border:1px solid #FF914D;
     border-radius: 10px;
     font-weight: bold;
+    &:hover {
+      background-color:white;
+      color:#FF914D;
+      border: 1px solid #FF914D;
+    }
   }
   .btn2 {
     background: white;
@@ -148,10 +154,17 @@ const LeftSideButtons = styled.div`
     margin: 0 0 0 1em;
     border-radius: 10px;
     font-weight: bold;
+    &:hover {
+      background-color:#FF914D;
+      color:white;
+      border: 1px solid white;
+    }
   }
   @media only screen and (max-width: 1000px) {
         width: 100vw;
         height: auto;
+        margin-left:250px;
+        margin
     }
 `;
 
@@ -171,7 +184,6 @@ const LeftSideBottom = styled.div`
     align-items:center;
     font-size:1.5em;
     font-weight: lighter;
-    font-style: italic;
   }
 
   .listnum {
@@ -192,6 +204,13 @@ const LeftSideBottom = styled.div`
         height: auto;
         width: 100%;
         margin-top: 50px;
+    }
+
+    @media only screen and (max-width:600px) {
+      .bullet-text{
+        width:100%;
+        margin: 10px 0;
+      }
     }
 `;
 
