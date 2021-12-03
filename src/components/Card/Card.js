@@ -47,13 +47,15 @@ const openModal = () => {
         <p className="card-company">{company}</p>
       </div>
       <p className="card-description">{shortenedDesc}</p>
-      <button onClick={openModal}>
-      <p> See more...</p>
+      <div className="button-div">
+      <button className="seeMoreButton" onClick={openModal}>
+      Expand
       </button>
       {modalIsOpen && <Modal1 modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />}
       <button className="button" onClick={addToListHandler}>
         Add to List
       </button>
+      </div>
     </div>
   );
 };
