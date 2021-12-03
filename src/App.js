@@ -2,7 +2,6 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { Signup } from "./components/signup/signup";
 import { getUser } from "./utils";
-import { Navbar } from "./components/Navbar/Navbar";
 import { Find } from "./components/Find/Find";
 import Home from "./components/Home/home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -16,7 +15,9 @@ function App() {
   const [email, setEmail] = useState();
   const [pass, setPass] = useState();
   const [loginToggle, setLoginToggle] = useState();
-  const [auth, setAuth] = useState();
+  const [auth, setAuth] = useState(false);
+  const [fail, setFail] = useState(true);
+  const [check, setCheck] = useState(false); // for navigation to find page
 
   // Board State
   const [board, setBoard] = useState(initialData);
@@ -26,6 +27,13 @@ function App() {
 
   const logOutHandler = () => {
     setUser();
+    setAuth(false);
+    setFail(true);
+    setUsername();
+    setPass();
+    setEmail();
+    setCheck(false);
+
     localStorage.removeItem("MyToken");
   };
 
@@ -63,6 +71,10 @@ function App() {
               auth={auth}
               setAuth={setAuth}
               setUser={setUser}
+              fail={fail}
+              setFail={setFail}
+              check={check}
+              setCheck={setCheck}
             />
           }
         />
