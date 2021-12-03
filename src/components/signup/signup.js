@@ -1,5 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import {
   Container,
   Left,
@@ -22,34 +22,42 @@ export const Signup = ({
   auth,
   setAuth,
   setUser,
+  fail,
+  setFail,
+  check,
+  setCheck,
 }) => {
-  //REACT ROUTER STATE
-  let navigate = useNavigate();
+  const [showPass, setShowPass] = useState(false); // to show /hide pass
+
+  // let navigate = useNavigate();
   useEffect(() => {
-    setAuth(); // on load this renders while getUser does thing.
+    setAuth(false); // on load this renders while getUser does thing.
+    setFail(true);
+    setUsername();
+    setPass();
+    setEmail();
   }, []);
 
-  //HANDLERS
-
-  const navigateToFind = (auth) => {
-    if (auth === true) {
-      navigate("/find");
+  useEffect(() => {
+    if (auth && fail) {
+      setCheck(true);
     } else {
-      alert("please re-enter log in");
+      setCheck(false);
     }
-  };
+  }, [auth, fail]); //checks for difference in auth and fail and runs above.
 
   const submitHandler = (e) => {
     e.preventDefault();
     if (username) {
-      fetchRequestAddUser(username, email, pass, setUser);
+      fetchRequestAddUser(username, email, pass, setUser, setAuth, setFail);
     } else {
-      login(email, pass, setUser, setAuth, navigateToFind);
+      login(email, pass, setUser, setAuth, setFail);
     }
   };
 
   return (
     <div>
+      {check && <Navigate to="/find" />}
       <Container>
         <Left>
           <h1 className="login-title">
@@ -76,9 +84,10 @@ export const Signup = ({
             <StyledInput
               className="inputSignup"
               name="password"
+              type={showPass ? "text" : "password"}
               onChange={(e) => setPass(e.target.value)}
             />
-            {auth === false && (
+            {!fail && (
               <p style={{ color: "red" }}>
                 *Incorrect login details. Please re-enter.
               </p>
