@@ -51,14 +51,23 @@ export const MenuLink = styled(Link)`
   color: black;
   position: relative;
   transition: all 0.3s ease-in;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
+  margin-right: 2em;
+  font-weight: 400;
+  align-items:center;
+
   &:hover {
     color: #ff914d;
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin: 0 auto;
   }
 `;
 
 export const Logo = styled.div`
   padding: 1rem;
+  
 `;
 
 export default Nav;

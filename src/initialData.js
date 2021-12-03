@@ -1,7 +1,7 @@
 export const initialData = {
     jobs: {
-        'job-1':{ id: 'job-1', company: '', title: 'test1', salary: '', description: ''},
-        'job-2':{ id: 'job-2', company: '', title: 'Drag me!', salary: '', description: ''},
+        'job-1':{ id: 'job-1', company: '', title: '', salary: '', description: ''},
+        'job-2':{ id: 'job-2', company: 'Company Here', title: 'Drag me!', salary: '', description: ''},
         'job-3':{ id: 'job-3', company: '', title: 'test3', salary: '', description: ''},
         'job-4':{ id: 'job-4', company: '', title: 'test4', salary: '', description: ''}
     },
@@ -9,7 +9,7 @@ export const initialData = {
         'column-1': {
             id: 'column-1',
             title: 'My List',
-            jobIds: ['job-2','job-1']
+            jobIds: ['job-2']
         },
         'column-2': {
             id: 'column-2',

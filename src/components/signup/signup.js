@@ -99,7 +99,7 @@ export const Signup = ({
           </button>
         </Left>
         <Right>
-          <img src={logo} alt="logo" />
+          <img style={{width:"100%"}}src={logo} alt="logo" />
         </Right>
       </Container>
     </div>
