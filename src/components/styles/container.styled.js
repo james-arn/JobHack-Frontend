@@ -68,14 +68,13 @@ export const StyledButton = styled.button`
   background: #ff914d;
   border-radius: 5px;
   display: block;
-  height: 40px;
+  height: 50px;
   width: 80%;
-  color:white;
+  color: white;
   border: none;
-  margin: 10px auto;
-  font-size: 1.2rem;
+  margin: 20px auto 0 auto;
+  font-size: 1.4rem;
   font-weight: bold;
-  margin-bottom: 0;
   cursor:pointer;
 `;
 
@@ -83,5 +82,5 @@ export const StyledLabel = styled.label`
   display: flex;
   font-size: 1.2rem;
   color: #ff914d;
-  margin-left: 70px;
+  margin-left: 65px;
 `;

@@ -81,7 +81,7 @@ export const Manage = ({board,setBoard, user, logOutHandler}) => {
       <Navbar user={user} logOutHandler={logOutHandler} />
       <h2 className="manage-title">
         Use our Canban Board to keep track of your tasks in the Application
-        Process
+        Process.
       </h2>
       <div className="canban-board">
         <DragDropContext onDragEnd={onDragEndHandler}>
@@ -90,7 +90,7 @@ export const Manage = ({board,setBoard, user, logOutHandler}) => {
               const column = board.columns[columnId];
               const jobs = column.jobIds.map((jobId) => board.jobs[jobId]);
 
-              return <Column key={column.id} column={column} jobs={jobs} />;
+              return <Column key={column.id} column={column} jobs={jobs} board={board} setBoard={setBoard} />;
             })}
           </div>
         </DragDropContext>
