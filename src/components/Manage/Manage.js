@@ -2,6 +2,7 @@ import "./Manage.css";
 import { DragDropContext } from "react-beautiful-dnd";
 import { Column } from "../Column/Column";
 import { Navbar } from "../Navbar/Navbar";
+import { fetchRequestUpdateBoard } from "../../utils";
 
 export const Manage = ({ board, setBoard, user, logOutHandler }) => {
   const onDragEndHandler = (result) => {
@@ -76,6 +77,10 @@ export const Manage = ({ board, setBoard, user, logOutHandler }) => {
     setBoard(newState);
   };
 
+  const saveHandler = () => {
+    fetchRequestUpdateBoard(user.username, board);
+  };
+
   return (
     <div className="manage-container">
       <Navbar user={user} logOutHandler={logOutHandler} />
@@ -103,6 +108,9 @@ export const Manage = ({ board, setBoard, user, logOutHandler }) => {
               })}
             </div>
           </DragDropContext>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <button onClick={saveHandler}>Save</button>
+          </div>
         </div>
       )}
     </div>
