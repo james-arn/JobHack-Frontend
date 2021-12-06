@@ -3,7 +3,7 @@ import { DragDropContext } from "react-beautiful-dnd";
 import { Column } from "../Column/Column";
 import { Navbar } from "../Navbar/Navbar";
 
-export const Manage = ({board,setBoard, user, logOutHandler}) => {
+export const Manage = ({ board, setBoard, user, logOutHandler }) => {
   const onDragEndHandler = (result) => {
     const { destination, source, draggableId } = result;
     // Cancelled drop
@@ -83,18 +83,28 @@ export const Manage = ({board,setBoard, user, logOutHandler}) => {
         Use our Canban Board to keep track of your tasks in the Application
         Process.
       </h2>
-      <div className="canban-board">
-        <DragDropContext onDragEnd={onDragEndHandler}>
-          <div className="canban-container">
-            {board.columnOrder.map((columnId) => {
-              const column = board.columns[columnId];
-              const jobs = column.jobIds.map((jobId) => board.jobs[jobId]);
+      {board && (
+        <div className="canban-board">
+          <DragDropContext onDragEnd={onDragEndHandler}>
+            <div className="canban-container">
+              {board.columnOrder.map((columnId) => {
+                const column = board.columns[columnId];
+                const jobs = column.jobIds.map((jobId) => board.jobs[jobId]);
 
-              return <Column key={column.id} column={column} jobs={jobs} board={board} setBoard={setBoard} />;
-            })}
-          </div>
-        </DragDropContext>
-      </div>
+                return (
+                  <Column
+                    key={column.id}
+                    column={column}
+                    jobs={jobs}
+                    board={board}
+                    setBoard={setBoard}
+                  />
+                );
+              })}
+            </div>
+          </DragDropContext>
+        </div>
+      )}
     </div>
   );
 };
