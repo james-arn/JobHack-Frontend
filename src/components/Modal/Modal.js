@@ -1,23 +1,25 @@
 import { StyledButton, OuterModalDiv, ModalCont, ModalWrapper, CurrentDataContainer, TitleContainer, DescriptionContainer, ButtonContainer } from "../styles/modal.styled";
 import Modal from "react-modal"
+import { description, title } from "../Card/Card";
+import { MdClose } from "react-icons/md";
 
-export const Modal1 = ({modalIsOpen, setModalIsOpen}) => {
+export const Modal1 = ({title, description, modalIsOpen, setModalIsOpen}) => {
     
       const closeModal = () => {
         setModalIsOpen(false);
       };
     return (
         <OuterModalDiv>
-           <ModalCont isOpen={modalIsOpen} onRequestClose={closeModal}>
+           <ModalCont  isOpen={modalIsOpen} onRequestClose={closeModal}>
         <ModalWrapper>
           <TitleContainer>
-            <label>Update this card's title</label>
+            <label>{title}</label>
           </TitleContainer>
           <DescriptionContainer>
-            <label>Add a description for your card</label>
+            <p>{description}</p>
           </DescriptionContainer>
           <ButtonContainer>
-            <StyledButton onClick={closeModal}>Discard</StyledButton>
+          <MdClose className="close-icon" onClick={closeModal} />
           </ButtonContainer>
         </ModalWrapper>
       </ModalCont> 

@@ -12,8 +12,8 @@ display: flex;
 
 export const ModalWrapper = styled.div`
 background-color: white;
-  width: 30%;
-  height: 40%;
+  width: 70%;
+  height: 60%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -45,7 +45,7 @@ export const CurrentDataContainer = styled.div`
 
 export const TitleContainer = styled.div`
 font-family: Verdana, Geneva, Tahoma, sans-serif;
-font-weight: lighter;
+font-weight: bold;
 margin: 5px;
 
 `
@@ -74,6 +74,8 @@ background: #ff914d;
   padding: 15px;
   
 `
+
+
 
 
 
