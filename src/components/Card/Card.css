@@ -81,23 +81,16 @@ a {
 .button-div {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 30px;
+  align-items: center;
 }
 
 .expand-icon {
-  position: absolute;
-  margin-left: 10%;
-  width: 20px;
-  height: 20px;
-  padding: 5px;
   cursor: pointer;
 }
 
 .add-to-list-icon {
-  position: absolute;
-  margin-left: 7%;
-  width: 35px;
-  height: 35px;
+  height: 25px;
+  width: 30px;
   cursor: pointer;
 }
 

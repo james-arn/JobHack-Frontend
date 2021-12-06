@@ -1,6 +1,5 @@
-import { StyledButton, OuterModalDiv, ModalCont, ModalWrapper, CurrentDataContainer, TitleContainer, DescriptionContainer, ButtonContainer } from "../styles/modal.styled";
-import Modal from "react-modal"
-import { description, title } from "../Card/Card";
+import { OuterModalDiv, ModalCont, ModalWrapper, TitleContainer, DescriptionContainer, ButtonContainer } from "../styles/modal.styled";
+// import { description, title } from "../Card/Card";
 import { MdClose } from "react-icons/md";
 
 export const Modal1 = ({title, description, modalIsOpen, setModalIsOpen}) => {
