@@ -1,3 +1,5 @@
+import { jobStructure } from "./JobStructure";
+
 //stay logged in on page load useeffect
 export const getUser = async (setUser) => {
   try {
@@ -40,7 +42,7 @@ export const login = async (
       throw new Error();
     }
     const data = await response.json();
-    
+
     setUser(data.user);
     setBoard(data.user.board);
     setAuth(true);
@@ -77,10 +79,23 @@ export const fetchRequestAddUser = async (
     // console.log(data);
     setUser(data.user); //saves data to user
 
+    const newBoard = {
+      ...data.user.board,
+      jobs: {
+        "job-1": {
+          id: "job-1",
+          company: "Code Nation",
+          title: "Junior Developer",
+          salary: 10,
+          description: "Job description",
+        },
+      },
+    };
 
-    setBoard(data.user.board);
+    setBoard(newBoard);
     setAuth(true);
-    console.log(data)
+    console.log(`new board is`);
+    console.log(newBoard);
     localStorage.setItem("MyToken", data.token);
   } catch (error) {
     setFail(false);
@@ -116,7 +131,7 @@ export const fetchRequestUpdateEmail = async (username, email) => {
       }),
     });
     const data = await response.json();
-   // console.log(data.message);
+    // console.log(data.message);
   } catch (error) {
     console.log(error);
   }
@@ -152,7 +167,7 @@ export const fetchRequestListMovies = async (setMovies) => {
     });
     const data = await response.json();
     setMovies(data.movieList);
-   // console.log(data.movieList);
+    // console.log(data.movieList);
   } catch (error) {
     console.log(error);
     console.log(`${process.env.REACT_APP_REST_API}user`);
@@ -175,8 +190,6 @@ export const fetchRequestUpdateBoard = async (username, board) => {
     const data = await response.json();
 
     // console.log(data)
-
-
 
     // console.log(board)
   } catch (error) {
