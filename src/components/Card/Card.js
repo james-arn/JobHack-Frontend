@@ -2,6 +2,9 @@ import "./Card.css";
 import _ from "lodash"
 import { useState } from "react";
 import { Modal1 } from "../Modal/Modal.js"
+import { FaExpandArrowsAlt } from "react-icons/fa";
+import { MdPlaylistAdd } from "react-icons/md";
+
 
 
 
@@ -41,21 +44,21 @@ const openModal = () => {
 
   return (
     <div className="card-container">
-      <p className="card-job-title">{title}</p>
+      <div className="textBox">
+      <span className="card-job-title">{title}</span>
+      </div>
       <div className="card-subrow">
         <p className="card-salary">£{roundedSalary}.00</p>
         <p className="card-company">{company}</p>
       </div>
       <p className="card-description">{shortenedDesc}</p>
       <div className="button-div">
-      <button className="seeMoreButton" onClick={openModal}>
-      Expand
-      </button>
-      {modalIsOpen && <Modal1 modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />}
-      <button className="button" onClick={addToListHandler}>
-        Add to List
-      </button>
+      <FaExpandArrowsAlt className="expand-icon" onClick={openModal} />
+      <MdPlaylistAdd className="add-to-list-icon" onClick={addToListHandler}/>
+      {modalIsOpen && <Modal1 title={title} description={description} modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />}
       </div>
+      
+      
     </div>
   );
 };
