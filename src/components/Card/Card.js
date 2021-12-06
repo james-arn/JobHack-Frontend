@@ -3,9 +3,6 @@ import _ from "lodash"
 import { useState } from "react";
 import { Modal1 } from "../Modal/Modal.js"
 
-
-
-
 export const Card = ({ title, company, description, salary, board, setBoard }) => {
   const shortenedDesc = description.substring(0, 100).concat("...");
   const roundedSalary = Math.round(salary);

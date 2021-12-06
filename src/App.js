@@ -6,7 +6,6 @@ import { Find } from "./components/Find/Find";
 import Home from "./components/Home/home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Manage } from "./components/Manage/Manage";
-import { initialData } from "./initialData";
 
 function App() {
   //USER states
@@ -20,7 +19,7 @@ function App() {
   const [check, setCheck] = useState(false); // for navigation to find page
 
   // Board State
-  const [board, setBoard] = useState(initialData);
+  const [board, setBoard] = useState();
   useEffect(() => {
     getUser(setUser); // on load this renders while getUser does thing.
   }, []);
@@ -33,6 +32,7 @@ function App() {
     setPass();
     setEmail();
     setCheck(false);
+    setBoard()
 
     localStorage.removeItem("MyToken");
   };
@@ -75,6 +75,7 @@ function App() {
               setFail={setFail}
               check={check}
               setCheck={setCheck}
+              setBoard={setBoard}
             />
           }
         />
