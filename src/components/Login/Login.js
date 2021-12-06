@@ -10,7 +10,7 @@ import {
 } from "../styles/container.styled";
 import logo from "./JobHack.svg";
 import { login, fetchRequestAddUser } from "../../utils";
-export const Signup = ({
+export const Login = ({
   username,
   setUsername,
   email,
@@ -59,10 +59,10 @@ export const Signup = ({
       <Container>
         <Left>
           <h1 className="login-title">
-            Register to join <span className="login-span">JobHack</span>
+            Welcome back to <span className="login-span">JobHack</span>
           </h1>
           <form id="formSignup" onSubmit={submitHandler}>
-            {!loginToggle && (
+            {loginToggle && (
               <>
                 <StyledLabel for="username">Username</StyledLabel>
                 <StyledInput
@@ -92,7 +92,7 @@ export const Signup = ({
             )}
 
             <StyledButton type="submit">
-              {!loginToggle ? "Sign up" : "Log in"}{" "}
+              {loginToggle ? "Sign up" : "Log in"}{" "}
             </StyledButton>
           </form>
           <button
@@ -102,7 +102,7 @@ export const Signup = ({
               setUsername();
             }}
           >
-            {!loginToggle ? "Already have an account?" : "Need to register?"}
+            {loginToggle ? "Already have an account?" : "Need to register?"}
           </button>
         </Left>
         <Right>
