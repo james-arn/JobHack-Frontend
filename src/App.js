@@ -99,6 +99,7 @@ function App() {
               setFail={setFail}
               check={check}
               setCheck={setCheck}
+              setBoard={setBoard}
             />
           }
         />
