@@ -78,7 +78,7 @@ export const fetchRequestAddUser = async (
     const data = await response.json();
     // console.log(data);
     setUser(data.user); //saves data to user
-
+    
     const newBoard = {
       ...data.user.board,
       jobs: {
