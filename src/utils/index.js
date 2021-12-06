@@ -18,7 +18,14 @@ export const getUser = async (setUser) => {
 };
 
 //new log in from login button
-export const login = async (email, pass, setUser, setAuth, setFail, setBoard) => {
+export const login = async (
+  email,
+  pass,
+  setUser,
+  setAuth,
+  setFail,
+  setBoard
+) => {
   try {
     const response = await fetch(`${process.env.REACT_APP_REST_API}login`, {
       method: "POST",
@@ -34,7 +41,7 @@ export const login = async (email, pass, setUser, setAuth, setFail, setBoard) =>
     }
     const data = await response.json();
     setUser(data.user);
-    setBoard(data.user.board)
+    setBoard(data.user.board);
     setAuth(true);
     setFail(true);
     localStorage.setItem("MyToken", data.token);
@@ -68,7 +75,7 @@ export const fetchRequestAddUser = async (
     const data = await response.json();
     console.log(data);
     setUser(data.user); //saves data to user
-    setBoard(data.board)
+    setBoard(data.user.board);
     setAuth(true);
     localStorage.setItem("MyToken", data.token);
   } catch (error) {
@@ -158,12 +165,12 @@ export const fetchRequestUpdateBoard = async (username, board) => {
       body: JSON.stringify({
         username: username,
         board: board,
-        new: true
+        new: true,
       }),
     });
     const data = await response.json();
-    console.log(data)
-    console.log(board)
+    console.log(data.board);
+    // console.log(board)
   } catch (error) {
     console.log(error);
   }
