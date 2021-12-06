@@ -8,7 +8,7 @@ export const getUser = async (setUser) => {
     });
     const data = await response.json();
     const savedUser = data.user; // now JS object
-    console.log(savedUser);
+    // console.log(savedUser);
     if (savedUser) {
       setUser(savedUser);
     }
@@ -40,6 +40,7 @@ export const login = async (
       throw new Error();
     }
     const data = await response.json();
+    
     setUser(data.user);
     setBoard(data.user.board);
     setAuth(true);
@@ -73,10 +74,13 @@ export const fetchRequestAddUser = async (
       }),
     });
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     setUser(data.user); //saves data to user
+
+
     setBoard(data.user.board);
     setAuth(true);
+    console.log(data)
     localStorage.setItem("MyToken", data.token);
   } catch (error) {
     setFail(false);
@@ -91,7 +95,7 @@ export const fetchRequestListUsers = async () => {
       method: "GET",
     });
     const data = await response.json();
-    console.log(data.userList);
+    // console.log(data.userList);
   } catch (error) {
     console.log(error);
     console.log(`${process.env.REACT_APP_REST_API}user`);
@@ -112,7 +116,7 @@ export const fetchRequestUpdateEmail = async (username, email) => {
       }),
     });
     const data = await response.json();
-    console.log(data.message);
+   // console.log(data.message);
   } catch (error) {
     console.log(error);
   }
@@ -134,7 +138,7 @@ export const fetchRequestDeleteUser = async (username) => {
       }
     );
     const data = await response.json();
-    console.log(data.message);
+    // console.log(data.message);
   } catch (error) {
     console.log(error);
   }
@@ -148,7 +152,7 @@ export const fetchRequestListMovies = async (setMovies) => {
     });
     const data = await response.json();
     setMovies(data.movieList);
-    console.log(data.movieList);
+   // console.log(data.movieList);
   } catch (error) {
     console.log(error);
     console.log(`${process.env.REACT_APP_REST_API}user`);
@@ -169,7 +173,11 @@ export const fetchRequestUpdateBoard = async (username, board) => {
       }),
     });
     const data = await response.json();
-    console.log(data.board);
+
+    // console.log(data)
+
+
+
     // console.log(board)
   } catch (error) {
     console.log(error);
