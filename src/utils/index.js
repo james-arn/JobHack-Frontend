@@ -1,3 +1,5 @@
+import { jobStructure } from "./JobStructure";
+
 //stay logged in on page load useeffect
 export const getUser = async (setUser) => {
   try {
@@ -76,10 +78,24 @@ export const fetchRequestAddUser = async (
     const data = await response.json();
     // console.log(data);
     setUser(data.user); //saves data to user
+    
+    const newBoard = {
+      ...data.user.board,
+      jobs: {
+        "job-1": {
+          id: "job-1",
+          company: "Code Nation",
+          title: "Junior Developer",
+          salary: 10,
+          description: "Job description",
+        },
+      },
+    };
 
-    setBoard(data.user.board);
+    setBoard(newBoard);
     setAuth(true);
-    console.log(data);
+    console.log(`new board is`);
+    console.log(newBoard);
     localStorage.setItem("MyToken", data.token);
   } catch (error) {
     setFail(false);
