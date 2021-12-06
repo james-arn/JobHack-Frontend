@@ -10,7 +10,7 @@ export const Navbar = ({ user, setUser, logOutHandler }) => {
   return user ? (
     <Nav>
       <Logo>
-        <Link to="/">
+        <Link to="/find">
           <img src={JHNavBarImg} alt="logo" />
         </Link>
       </Logo>

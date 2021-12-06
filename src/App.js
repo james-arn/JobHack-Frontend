@@ -1,12 +1,13 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import { Signup } from "./components/signup/signup";
-import { getUser } from "./utils";
+import { getUser, login } from "./utils";
 import { Find } from "./components/Find/Find";
 import Home from "./components/Home/home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Manage } from "./components/Manage/Manage";
 import { initialData } from "./initialData";
+import { Login } from "./components/Login/Login";
 
 function App() {
   //USER states
@@ -79,6 +80,28 @@ function App() {
           }
         />
         <Route
+          path="/login"
+          element={
+            <Login
+              username={username}
+              setUsername={setUsername}
+              email={email}
+              setEmail={setEmail}
+              pass={pass}
+              setPass={setPass}
+              loginToggle={loginToggle}
+              setLoginToggle={setLoginToggle}
+              auth={auth}
+              setAuth={setAuth}
+              setUser={setUser}
+              fail={fail}
+              setFail={setFail}
+              check={check}
+              setCheck={setCheck}
+            />
+          }
+        />
+        <Route
           path="/manage"
           element={
             <Manage
@@ -89,7 +112,7 @@ function App() {
             />
           }
         />
-        <Route path="*" element={<p>Not found.</p>} />
+        <Route path="*" element={<p>Page not found.</p>} />
       </Routes>
     </BrowserRouter>
   );
