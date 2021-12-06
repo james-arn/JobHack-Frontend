@@ -1,5 +1,3 @@
-import { jobStructure } from "./JobStructure";
-
 //stay logged in on page load useeffect
 export const getUser = async (setUser) => {
   try {
@@ -78,7 +76,7 @@ export const fetchRequestAddUser = async (
     const data = await response.json();
     // console.log(data);
     setUser(data.user); //saves data to user
-    
+
     const newBoard = {
       ...data.user.board,
       jobs: {
