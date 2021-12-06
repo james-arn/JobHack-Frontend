@@ -26,6 +26,7 @@ export const Signup = ({
   setFail,
   check,
   setCheck,
+  setBoard
 }) => {
   // let navigate = useNavigate();
   useEffect(() => {
@@ -47,9 +48,9 @@ export const Signup = ({
   const submitHandler = (e) => {
     e.preventDefault();
     if (username) {
-      fetchRequestAddUser(username, email, pass, setUser, setAuth, setFail);
+      fetchRequestAddUser(username, email, pass, setUser, setAuth, setFail, setBoard);
     } else {
-      login(email, pass, setUser, setAuth, setFail);
+      login(email, pass, setUser, setAuth, setFail, setBoard);
     }
   };
 

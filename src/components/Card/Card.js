@@ -6,9 +6,6 @@ import { FaExpandArrowsAlt } from "react-icons/fa";
 import { MdPlaylistAdd } from "react-icons/md";
 
 
-
-
-
 export const Card = ({ title, company, description, salary, board, setBoard }) => {
   const shortenedDesc = description.substring(0, 100).concat("...");
   const roundedSalary = Math.round(salary);
