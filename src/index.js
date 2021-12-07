@@ -1,25 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { Find } from "./components/Find/Find";
-import { Signup } from "./components/signup/signup";
-import { Manage } from "./components/Manage/Manage";
 
-ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route exact path="/" element={<App />} />
-      <Route path="/find" element={<Find />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/manage" element={<Manage />} />
-      <Route path="*" element={<p>Not found.</p>} />
-    </Routes>
-  </BrowserRouter>,
-  document.getElementById("root")
-);
+ReactDOM.render(<App />, document.getElementById("root"));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

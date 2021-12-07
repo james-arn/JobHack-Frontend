@@ -1,7 +1,3 @@
-// below is request obj we would send to rest api. exactly the same as thunderlient.
-//this is the bridge between react app and back end rest api.
-
-//USERS
 //stay logged in on page load useeffect
 export const getUser = async (setUser) => {
   try {
@@ -12,7 +8,7 @@ export const getUser = async (setUser) => {
     });
     const data = await response.json();
     const savedUser = data.user; // now JS object
-    console.log(savedUser);
+    // console.log(savedUser);
     if (savedUser) {
       setUser(savedUser);
     }
@@ -22,7 +18,14 @@ export const getUser = async (setUser) => {
 };
 
 //new log in from login button
-export const Login = async (email, pass, setUser) => {
+export const login = async (
+  email,
+  pass,
+  setUser,
+  setAuth,
+  setFail,
+  setBoard
+) => {
   try {
     const response = await fetch(`${process.env.REACT_APP_REST_API}login`, {
       method: "POST",
@@ -32,8 +35,16 @@ export const Login = async (email, pass, setUser) => {
         pass: pass,
       }),
     });
+    if (response.status === 401) {
+      setFail(false);
+      throw new Error();
+    }
     const data = await response.json();
+
     setUser(data.user);
+    setBoard(data.user.board);
+    setAuth(true);
+    setFail(true);
     localStorage.setItem("MyToken", data.token);
   } catch (error) {
     console.log(error);
@@ -45,7 +56,10 @@ export const fetchRequestAddUser = async (
   username,
   email,
   password,
-  setUser
+  setUser,
+  setAuth,
+  setFail,
+  setBoard
 ) => {
   try {
     const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {
@@ -60,30 +74,35 @@ export const fetchRequestAddUser = async (
       }),
     });
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     setUser(data.user); //saves data to user
+
+    const newBoard = {
+      ...data.user.board,
+      jobs: {
+        "job-1": {
+          id: "job-1",
+          company: "Code Nation",
+          title: "Junior Developer",
+          salary: 10,
+          description: "Job description",
+        },
+      },
+    };
+
+    setBoard(newBoard);
+    setAuth(true);
+    console.log(`new board is`);
+    console.log(newBoard);
     localStorage.setItem("MyToken", data.token);
   } catch (error) {
+    setFail(false);
     console.log(error);
   }
 };
 
-// READ lists all users in database
-export const fetchRequestListUsers = async () => {
-  try {
-    const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {
-      method: "GET",
-    });
-    const data = await response.json();
-    console.log(data.userList);
-  } catch (error) {
-    console.log(error);
-    console.log(`${process.env.REACT_APP_REST_API}user`);
-  }
-};
-
-//Update
-export const fetchRequestUpdateEmail = async (username, email) => {
+// Update board after change
+export const fetchRequestUpdateBoard = async (username, board) => {
   try {
     const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {
       method: "PUT",
@@ -92,49 +111,13 @@ export const fetchRequestUpdateEmail = async (username, email) => {
       },
       body: JSON.stringify({
         username: username,
-        email: email,
+        board: board,
+        new: true,
       }),
     });
     const data = await response.json();
-    console.log(data.message);
+    console.log(data);
   } catch (error) {
     console.log(error);
-  }
-};
-
-//Delete
-export const fetchRequestDeleteUser = async (username) => {
-  try {
-    const response = await fetch(
-      `${process.env.REACT_APP_REST_API}user/${username}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        params: JSON.stringify({
-          username: username,
-        }),
-      }
-    );
-    const data = await response.json();
-    console.log(data.message);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-//MOVIES
-export const fetchRequestListMovies = async (setMovies) => {
-  try {
-    const response = await fetch(`${process.env.REACT_APP_REST_API}movie`, {
-      method: "GET",
-    });
-    const data = await response.json();
-    setMovies(data.movieList);
-    console.log(data.movieList);
-  } catch (error) {
-    console.log(error);
-    console.log(`${process.env.REACT_APP_REST_API}user`);
   }
 };
