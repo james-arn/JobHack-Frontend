@@ -96,7 +96,7 @@ a {
 
 .textBox {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   width: 287px;
   height: 30px;
   border: 1px solid orange;
