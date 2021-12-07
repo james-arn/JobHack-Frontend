@@ -101,76 +101,6 @@ export const fetchRequestAddUser = async (
   }
 };
 
-// READ lists all users in database
-export const fetchRequestListUsers = async () => {
-  try {
-    const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {
-      method: "GET",
-    });
-    const data = await response.json();
-    // console.log(data.userList);
-  } catch (error) {
-    console.log(error);
-    console.log(`${process.env.REACT_APP_REST_API}user`);
-  }
-};
-
-//Update
-export const fetchRequestUpdateEmail = async (username, email) => {
-  try {
-    const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: username,
-        email: email,
-      }),
-    });
-    const data = await response.json();
-    // console.log(data.message);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-//Delete
-export const fetchRequestDeleteUser = async (username) => {
-  try {
-    const response = await fetch(
-      `${process.env.REACT_APP_REST_API}user/${username}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        params: JSON.stringify({
-          username: username,
-        }),
-      }
-    );
-    const data = await response.json();
-    // console.log(data.message);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-//MOVIES
-export const fetchRequestListMovies = async (setMovies) => {
-  try {
-    const response = await fetch(`${process.env.REACT_APP_REST_API}movie`, {
-      method: "GET",
-    });
-    const data = await response.json();
-    setMovies(data.movieList);
-    // console.log(data.movieList);
-  } catch (error) {
-    console.log(error);
-    console.log(`${process.env.REACT_APP_REST_API}user`);
-  }
-};
 // Update board after change
 export const fetchRequestUpdateBoard = async (username, board) => {
   try {
@@ -186,10 +116,6 @@ export const fetchRequestUpdateBoard = async (username, board) => {
       }),
     });
     const data = await response.json();
-
-    // console.log(data)
-
-    // console.log(board)
   } catch (error) {
     console.log(error);
   }
