@@ -8,7 +8,13 @@ const Nav = styled.div`
   align-items: center;
   flex-wrap: wrap;
   max-width: 1500px;
+  min-width: 250px;
   margin: 0 auto;
+
+  @media (max-width: 430px) {
+    justify-content: center;
+    min-width: 250px;
+  }
 `;
 
 export const Hamburger = styled.div`
@@ -25,6 +31,7 @@ export const Hamburger = styled.div`
   }
   @media (max-width: 768px) {
     display: flex;
+    width: 100%;
   }
 `;
 
@@ -54,7 +61,7 @@ export const MenuLink = styled(Link)`
   font-size: 1.2rem;
   margin-right: 2em;
   font-weight: 400;
-  align-items:center;
+  align-items: center;
 
   &:hover {
     color: #ff914d;
@@ -66,8 +73,7 @@ export const MenuLink = styled(Link)`
 `;
 
 export const Logo = styled.div`
-  padding: 1rem;
-  
+  padding: 0rem;
 `;
 
 export default Nav;
