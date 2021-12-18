@@ -11,7 +11,7 @@ export const Find = ({ board, setBoard, user, logOutHandler }) => {
 
   const fetchURL = async () => {
     if (jobName === "" || Location === "") {
-      alert("Please enter your search criteria.")
+      alert("Please enter your search criteria.");
     }
     setFetchedJobs([]);
     const data = await fetch(
@@ -40,47 +40,49 @@ export const Find = ({ board, setBoard, user, logOutHandler }) => {
   };
 
   return (
-    <div className="find-container">
+    <div>
       <Navbar user={user} logOutHandler={logOutHandler} />
-      <div className="find-title-container">
-        <h2 className="find-title">
-          Use our handy tool to search for developer jobs here..
-        </h2>
-        <p className="find-desc">
-          Adding items to your list will create a card on the canban board on
-          the manage page so that you can track your progress!
-        </p>
-      </div>
-      <div className="search-criteria">
-        <input
-          className="left-input input"
-          onChange={(e) => setJobName(e.target.value)}
-          type="text"
-          placeholder="Job Name"
-        ></input>
-        <input
-          className="right-input input"
-          onChange={(e) => setLocation(e.target.value)}
-          type="text"
-          placeholder="Location"
-        ></input>
-        <button className="job-search-button button" onClick={fetchURL}>
-          Search
-        </button>
-      </div>
-      {fetchedJobs.length > 1 ? (
-        <div style={{ display: "block" }}>
-          <JobsComponent
-            fetchedJobs={fetchedJobs}
-            board={board}
-            setBoard={setBoard}
-          />
+      <div className="find-container">
+        <div className="find-title-container">
+          <h2 className="find-title">
+            Use our handy tool to search for developer jobs here..
+          </h2>
+          <p className="find-desc">
+            Adding items to your list will create a card on the canban board on
+            the manage page so that you can track your progress!
+          </p>
         </div>
-      ) : (
-        <div className="find-search-text">
-          Jobs suited for your search will appear here...
+        <div className="search-criteria">
+          <input
+            className="left-input input"
+            onChange={(e) => setJobName(e.target.value)}
+            type="text"
+            placeholder="Job Name"
+          ></input>
+          <input
+            className="right-input input"
+            onChange={(e) => setLocation(e.target.value)}
+            type="text"
+            placeholder="Location"
+          ></input>
+          <button className="job-search-button button" onClick={fetchURL}>
+            Search
+          </button>
         </div>
-      )}
+        {fetchedJobs.length > 1 ? (
+          <div style={{ display: "block" }}>
+            <JobsComponent
+              fetchedJobs={fetchedJobs}
+              board={board}
+              setBoard={setBoard}
+            />
+          </div>
+        ) : (
+          <div className="find-search-text">
+            Jobs suited for your search will appear here...
+          </div>
+        )}
+      </div>
     </div>
   );
 };

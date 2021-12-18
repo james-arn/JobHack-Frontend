@@ -2,18 +2,47 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Nav = styled.div`
-  padding: 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 1500px;
-  min-width: 250px;
+  max-width: 1250px;
   margin: 0 auto;
 
-  @media (max-width: 430px) {
+  @media (max-width: 1300px) {
     justify-content: center;
-    min-width: 250px;
+  }
+
+  .mob-menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-button {
+    background-color: #ff914d;
+    color: white;
+    padding: 0.5em 2em;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    font-weight: bold;
+    align-items: center;
+    cursor: pointer;
+
+    border: 1px solid #ff914d;
+  }
+
+  .nav-button:hover {
+    color: #ff914d;
+    background-color: white;
+    border: 1px solid #ff914d;
+  }
+
+  .nav-button.sign-up {
+    @media (max-width: 470px) {
+      display: none;
+    }
   }
 `;
 
@@ -29,9 +58,8 @@ export const Hamburger = styled.div`
     margin-bottom: 4px;
     border-radius: 5px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1300px) {
     display: flex;
-    width: 100%;
   }
 `;
 
@@ -41,7 +69,7 @@ export const Menu = styled.div`
   align-items: center;
   position: relative;
 
-  @media (max-width: 768px) {
+  @media (max-width: 860px) {
     overflow: hidden;
     flex-direction: column;
     width: 100%;
@@ -67,13 +95,13 @@ export const MenuLink = styled(Link)`
     color: #ff914d;
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 1300px) {
     margin: 0 auto;
   }
 `;
 
 export const Logo = styled.div`
-  padding: 0rem;
+  padding: 1em 0;
 `;
 
 export default Nav;

@@ -20,7 +20,7 @@ export const LeftSide = styled.div`
   height: 50vh;
   margin-top: 20vh;
   margin-left: 100px;
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 860px) {
     margin: 20vh 0;
     margin-left: 30px;
 
@@ -49,7 +49,7 @@ export const LeftSideTop = styled.div`
     padding: 0;
     font-weight: bold;
   }
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 860px) {
     width: 100%;
     display: flex;
     flex-flow: column;
@@ -94,7 +94,7 @@ export const LeftSideButtons = styled.div`
       border: 1px solid white;
     }
   }
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 860px) {
     width: 100vw;
     height: auto;
     margin-left: 250px;
@@ -133,13 +133,13 @@ export const LeftSideBottom = styled.div`
     font-weight: bold;
     border-radius: 5px;
   }
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 860px) {
     height: auto;
     width: 100%;
     margin-top: 50px;
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 470px) {
     .bullet-text {
       width: 100%;
       margin: 10px 0;
@@ -151,15 +151,15 @@ export const RightSide = styled.div`
   width: 55vw;
   height: 92.5vh;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  img {
-    max-width: 90%;
+  .img-hero {
+    max-width: 100%;
     height: auto;
     object-fit: contain;
   }
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 860px) {
     display: none;
   }
 `;
