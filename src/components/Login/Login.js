@@ -77,6 +77,7 @@ export const Login = ({
                 <StyledInput
                   className="inputSignup"
                   name="username"
+                  aria-label="name"
                   onChange={(e) => setUsername(e.target.value)}
                 />
               </>
@@ -85,6 +86,7 @@ export const Login = ({
             <StyledInput
               className="inputSignup"
               name="email"
+              aria-label="email"
               onChange={(e) => setEmail(e.target.value)}
             />
             <StyledLabel for="password">Password</StyledLabel>
@@ -92,6 +94,7 @@ export const Login = ({
               className="inputSignup"
               name="password"
               type="password"
+              aria-label="password"
               onChange={(e) => setPass(e.target.value)}
             />
             {!fail && (

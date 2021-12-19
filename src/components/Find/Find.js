@@ -58,12 +58,14 @@ export const Find = ({ board, setBoard, user, logOutHandler }) => {
             onChange={(e) => setJobName(e.target.value)}
             type="text"
             placeholder="Job Name"
+            aria-label="job name"
           ></input>
           <input
             className="right-input input"
             onChange={(e) => setLocation(e.target.value)}
             type="text"
             placeholder="Location"
+            aria-label="location"
           ></input>
           <button className="job-search-button button" onClick={fetchURL}>
             Search

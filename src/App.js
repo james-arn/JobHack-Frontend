@@ -1,4 +1,3 @@
-import "./App.css";
 import { useState, useEffect } from "react";
 import { Signup } from "./components/signup/signup";
 import { getUser } from "./utils";
@@ -7,7 +6,6 @@ import Home from "./components/Home/home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Manage } from "./components/Manage/Manage";
 import { Login } from "./components/Login/Login";
-
 
 function App() {
   //USER states

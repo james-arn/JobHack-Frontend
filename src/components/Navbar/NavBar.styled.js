@@ -69,7 +69,7 @@ export const Menu = styled.div`
   align-items: center;
   position: relative;
 
-  @media (max-width: 860px) {
+  @media (max-width: 1300px) {
     overflow: hidden;
     flex-direction: column;
     width: 100%;
