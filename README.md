@@ -13,4 +13,4 @@
 *3. How to Install and Run the Project*
 - You can view the hosted Netlify page here: https://jobhack.netlify.app/
 - Clone the repo and run npm i to install dependencies.
-- Please run npm start to run locally.
+- Please run *npm start* to run locally.
