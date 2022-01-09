@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const HomePage = styled.div`
-  /* background: grey; */
   margin: 0 auto;
   max-width: 1500px;
   padding: 0;
+  height:100vh;
 
   .hero {
     display: flex;
@@ -17,9 +17,10 @@ export const LeftSide = styled.div`
   justify-content: space-around;
   align-items: center;
   width: 50vw;
-  height: 50vh;
+  height: 100vh;
   margin-top: 20vh;
   margin-left: 100px;
+  
   @media only screen and (max-width: 860px) {
     margin: 20vh 0;
     margin-left: 30px;

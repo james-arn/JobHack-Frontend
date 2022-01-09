@@ -5,18 +5,20 @@ import styled from "styled-components";
 export const HomeMasterWrapper = styled.div`
   width: 100%;
   margin: 0 auto;
+  
 `;
 
 export const HomeBodyContainer = styled.div`
   max-width: 1250px;
-
+  height: 80vh;
   padding: 0;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-
   width: 100%;
   min-width: 300px;
+  justify-content: center;
+  align-items: center;
 
   @media (min-width: 1300px) {
     flex-direction: row;
@@ -38,17 +40,17 @@ export const Hero = styled.div`
     color: #ff914d;
     font-size: 4rem;
     text-align: center;
-    margin: 0;
+    margin-bottom: 0;
     padding: 0;
     font-weight: bold;
+    margin-top: -1em;
   }
   p {
     font-family: Roboto, sans-serif;
     text-align: center;
     font-size: 1.6rem;
-    margin: 0 0 30px 0;
+    margin: 0 0 1.5em 0;
     padding: 0;
-    font-weight: bold;
   }
   @media (min-width: 1300px) {
     h1 {
@@ -67,6 +69,7 @@ export const Buttons = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin: 1.5em 0;
 
   .btn1 {
     background: #ff914d;
@@ -118,7 +121,7 @@ export const List = styled.div`
   .bullet-point {
     display: flex;
     align-items: center;
-    margin: 10px 30px 10px 30px;
+    margin: 10px 20px 10px 0px;
   }
   .bullet-text {
     font-size: 1.25rem;
